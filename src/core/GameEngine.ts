@@ -1,6 +1,13 @@
 import { StateManager } from '../state/StateManager';
 import { UIController } from '../ui/UIController';
-import { Patch } from '../types/index';
+import { 
+  Direction, 
+  Emitter, 
+  GridElement, 
+  LaserColor, 
+  RaySegment, 
+  Receiver 
+} from '../types/index';
 
 export class GameEngine {
   private stateManager: StateManager;
@@ -40,36 +47,20 @@ export class GameEngine {
       return;
     }
 
-    if (action === 'RIVAL_END') {
-      this.stateManager.updateState({ rivalScore: null, rivalLevel: null });
-      this.uiController.render(this.stateManager.getState());
+    // --- KLIKNIĘCIE W KAFELEK -> OBRÓT ELEMENTU ---
+    if (action.startsWith('ROTATE_CELL:') && currentState.status === 'PLAYING') {
+      const cellIndex = parseInt(action.split(':')[1], 10);
+      this.rotateCell(cellIndex);
       return;
     }
 
-    if (action.startsWith('RIVAL_SUBMIT:')) {
-      const code = action.split(':')[1]?.trim() || '';
-      try {
-        const decoded = atob(code);
-        const parts = decoded.split('-');
-        if (parts[0] === 'PTC' && parts.length === 4) {
-          const rScore = parseInt(parts[1], 10);
-          const rLvl = parseInt(parts[2], 10);
-          const checkSum = parseInt(parts[3], 10);
-          
-          if (rScore + rLvl + 73 === checkSum) {
-            this.stateManager.updateState({ rivalScore: rScore, rivalLevel: rLvl });
-            this.uiController.render(this.stateManager.getState());
-            alert(currentState.lang === 'PL' ? 'Kod przyjęty! Rywalizacja aktywna.' : 'Rival code accepted!');
-            return;
-          }
-        }
-        alert(currentState.lang === 'PL' ? 'Błędny lub uszkodzony kod rywala!' : 'Invalid rival code!');
-      } catch (e) {
-        alert(currentState.lang === 'PL' ? 'Niepoprawny format kodu!' : 'Malformed code format!');
-      }
+    // --- STRZAŁ TESTOWY / WERYFIKACJA ---
+    if (action === 'TEST_FIRE' && currentState.status === 'PLAYING') {
+      this.verifyOpticalCircuit();
       return;
     }
 
+    // --- CHEATS & DEV ---
     if (action === 'DEV_NEXT_LEVEL' && currentState.status === 'PLAYING') {
       if (this.timerInterval) clearInterval(this.timerInterval);
       const nextLvl = currentState.level + 1;
@@ -92,12 +83,12 @@ export class GameEngine {
       return;
     }
 
+    // --- TAKTYCZNY ZAPIS / ODCZYT ---
     if (action === 'TACTICAL_SAVE' && currentState.status === 'PLAYING' && currentState.savesLeft > 0) {
       const snapshot = JSON.stringify({
-        patches: currentState.patches.map(p => ({ ...p, cells: [...p.cells], variable: p.variable })),
+        grid: currentState.grid.map(g => ({ ...g })),
         time: currentState.time,
         totalTime: currentState.totalTime,
-        puzzle: [...currentState.puzzle],
         level: currentState.level,
         savesLeft: currentState.savesLeft,
         loadsLeft: currentState.loadsLeft
@@ -111,14 +102,15 @@ export class GameEngine {
       try {
         const parsed = JSON.parse(currentState.savedSnapshot);
         this.stateManager.updateState({
-          patches: parsed.patches,
+          grid: parsed.grid,
           time: parsed.time,
           totalTime: parsed.totalTime ?? currentState.totalTime,
-          puzzle: parsed.puzzle,
           level: parsed.level,
           savesLeft: parsed.savesLeft ?? currentState.savesLeft,
           loadsLeft: currentState.loadsLeft - 1
         });
+        // Przeliczamy promienie dla wczytanego stanu
+        this.recalculateRays();
         this.uiController.render(this.stateManager.getState());
       } catch (e) {
         console.error("Tactical Load Error:", e);
@@ -126,24 +118,21 @@ export class GameEngine {
       return;
     }
 
+    // --- SURVIVAL RESET ---
     if (action === 'RESET_PATH' && currentState.status === 'PLAYING') {
       const remainingLives = currentState.lives - 1;
       if (remainingLives <= 0) {
         if (this.timerInterval) clearInterval(this.timerInterval);
         this.stateManager.updateState({ status: 'GAME_OVER', lives: 0 });
       } else {
-        this.stateManager.updateState({ patches: [], lives: remainingLives, time: 0 });
+        // Resetujemy obroty elementów do zera
+        const resGrid = currentState.grid.map(g => ({ ...g, rotation: 0 }));
+        this.stateManager.updateState({ grid: resGrid, lives: remainingLives, time: 0 });
+        this.recalculateRays();
         this.startTimer();
       }
       this.uiController.render(this.stateManager.getState());
       return;
-    }
-
-    if (action.startsWith('PATCH_ATTEMPT:') && currentState.status === 'PLAYING') {
-      const rawCells = action.split(':')[1];
-      if (!rawCells) return;
-      const selectedCells = rawCells.split(',').map(Number);
-      this.processPatchAttempt(selectedCells);
     }
   }
 
@@ -171,102 +160,280 @@ export class GameEngine {
     this.uiController.showLoading(state.lang);
 
     setTimeout(() => {
-      // Pobieramy wygenerowaną docelową planszę wraz ze strukturą wbudowanych klocków
-      const { grid, generatedPatches } = this.generateShikakuPuzzle(currentLevel);
+      // Skalowanie trudności i rozmiaru siatki
+      const cols = currentLevel <= 3 ? 5 : (currentLevel <= 8 ? 6 : 7);
+      const rows = cols;
+
+      const { grid, emitters, receivers } = this.generateOpticalPuzzle(currentLevel, cols, rows);
 
       this.stateManager.updateState({
         status: 'PLAYING',
-        patches: [],
-        puzzle: grid,
-        // Zachowujemy w stanie gry informację o ewentualnie przypisanych zmiennych do łatek
-        ...(generatedPatches ? { targetPatchesInfo: generatedPatches } : {}),
+        cols,
+        rows,
+        grid,
+        emitters,
+        receivers,
         score: isNewGame ? 0 : state.score,
         level: currentLevel,
         time: 0,
         ...(isNewGame ? { lives: 3, savesLeft: 3, loadsLeft: 3, totalTime: 0 } : {})
       });
 
+      this.recalculateRays();
       this.uiController.render(this.stateManager.getState());
       this.startTimer();
     }, 50);
   }
 
-  private processPatchAttempt(selectedCells: number[]): void {
-    const state = this.stateManager.getState() as any;
-    const { puzzle, patches, cols } = this.getGridConfig(state);
+  private rotateCell(index: number): void {
+    const state = this.stateManager.getState();
+    const cell = state.grid[index];
+    
+    // Puste pola i miny nie reagują na obrót
+    if (!cell || cell.type === 'EMPTY' || cell.type === 'MINE') return;
 
-    if (selectedCells.length === 0) return;
-
-    if (!this.isValidRectangle(selectedCells, cols)) {
-      this.punishPlayer("Not a valid rectangle");
-      return;
-    }
-
-    const isOverlapping = patches.some((patch: Patch) => 
-      patch.cells.some((cell: number) => selectedCells.includes(cell))
+    // Obracamy o 90 stopni w prawo
+    const updatedGrid = state.grid.map((elem, idx) => 
+      idx === index ? { ...elem, rotation: (elem.rotation + 90) % 360 } : elem
     );
-    if (isOverlapping) {
-      this.punishPlayer("Overlap with existing patch");
-      return;
+
+    this.stateManager.updateState({ grid: updatedGrid });
+    this.recalculateRays();
+    this.uiController.render(this.stateManager.getState());
+  }
+
+  // --- SILNIK RAYCASTINGU (Śledzenie promieni w locie) ---
+  private recalculateRays(): void {
+    const state = this.stateManager.getState();
+    const { cols, rows, grid, emitters } = state;
+    const rays: RaySegment[] = [];
+
+    // Zabezpieczenie przed nieskończoną pętlą (np. zapętlone lustra)
+    const MAX_STEPS = 100;
+    // Zapamiętujemy odwiedzone stany promienia: "row,col,dir,color"
+    const visited = new Set<string>();
+
+    interface ActiveRay {
+      r: number;
+      c: number;
+      dir: Direction;
+      color: LaserColor;
+      steps: number;
     }
 
-    const cluesInside: { index: number; value: number; isVariable?: boolean; varLetter?: 'X' | 'Y' }[] = [];
-    const targetPatchesInfo: Patch[] = state.targetPatchesInfo || [];
+    const queue: ActiveRay[] = [];
 
-    selectedCells.forEach(cellIdx => {
-      // Analizujemy, czy pole na siatce posiada przypisaną wskazówkę
-      if (puzzle[cellIdx] !== 0) {
-        // Negatywna wartość w tablicy puzzle sygnalizuje ukrytą zmienną
-        if (puzzle[cellIdx] < 0) {
-          const targetPatch = targetPatchesInfo.find(p => p.clueIndex === cellIdx);
-          cluesInside.push({ 
-            index: cellIdx, 
-            value: Math.abs(puzzle[cellIdx]), 
-            isVariable: true, 
-            varLetter: targetPatch?.variable 
-          });
-        } else {
-          cluesInside.push({ index: cellIdx, value: puzzle[cellIdx] });
-        }
+    // Inicjalizacja promieni startowych z emiterów
+    emitters.forEach(em => {
+      // Określamy komórkę wejściową na siatce na podstawie kierunku strzału działka
+      let startR = 0, startC = 0;
+      if (em.direction === 'RIGHT') { startR = em.index; startC = 0; }
+      else if (em.direction === 'LEFT') { startR = em.index; startC = cols - 1; }
+      else if (em.direction === 'DOWN') { startR = 0; startC = em.index; }
+      else if (em.direction === 'UP') { startR = rows - 1; startC = em.index; }
+
+      queue.push({ r: startR, c: startC, dir: em.direction, color: em.color, steps: 0 });
+    });
+
+    while (queue.length > 0) {
+      const curr = queue.shift()!;
+      if (curr.steps > MAX_STEPS) continue;
+
+      // Sprawdzamy wyjście poza planszę
+      if (curr.r < 0 || curr.r >= rows || curr.c < 0 || curr.c >= cols) continue;
+
+      const stateKey = `${curr.r},${curr.c},${curr.dir},${curr.color}`;
+      if (visited.has(stateKey)) continue;
+      visited.add(stateKey);
+
+      // Środek bieżącego kafelka (względne koordynaty dla celów rysowania)
+      const x1 = curr.c + 0.5;
+      const y1 = curr.r + 0.5;
+
+      // Określamy punkt startowy segmentu (skąd wszedł na kafelek)
+      let sx = x1, sy = y1;
+      if (curr.dir === 'RIGHT') sx = curr.c;
+      if (curr.dir === 'LEFT') sx = curr.c + 1;
+      if (curr.dir === 'DOWN') sy = curr.r;
+      if (curr.dir === 'UP') sy = curr.r + 1;
+
+      // Dodajemy pierwszą połowę wiązki (wejście do środka kafelka)
+      rays.push({ x1: sx, y1: sy, x2: x1, y2: y1, color: curr.color });
+
+      // Sprawdzamy interakcję z elementem optycznym na kafelku
+      const cell = grid[curr.r * cols + curr.c];
+      const nextRays: { dir: Direction; color: LaserColor }[] = [];
+
+      if (cell.type === 'MINE') {
+        // Promień uderza w minę – urywa się w środku (brak wyjścia)
+        continue;
+      } else if (cell.type === 'EMPTY') {
+        // Przelatuje swobodnie dalej
+        nextRays.push({ dir: curr.dir, color: curr.color });
+      } else if (cell.type === 'MIRROR_1') {
+        // Lustro typu '/' (zależnie od rotacji zachowuje się jak '/' lub '\')
+        const isSlash = cell.rotation === 0 || cell.rotation === 180;
+        const outDir = this.reflectRay(curr.dir, isSlash);
+        if (outDir) nextRays.push({ dir: outDir, color: curr.color });
+      } else if (cell.type === 'MIRROR_2') {
+        // Lustro typu '\'
+        const isSlash = cell.rotation === 90 || cell.rotation === 270;
+        const outDir = this.reflectRay(curr.dir, isSlash);
+        if (outDir) nextRays.push({ dir: outDir, color: curr.color });
+      } else if (cell.type === 'SPLITTER') {
+        // Pryzmat rozszczepia promień na kierunek bieżący oraz odbity pod kątem 90 st.
+        // Rotacja określa, w którą stronę następuje odchylenie wtórne
+        nextRays.push({ dir: curr.dir, color: curr.color }); // Przechodzi prosto
+        
+        const splitSlash = cell.rotation === 0 || cell.rotation === 180;
+        const splitDir = this.reflectRay(curr.dir, splitSlash);
+        if (splitDir) nextRays.push({ dir: splitDir, color: curr.color });
+      }
+
+      // Dla każdego wygenerowanego promienia wyjściowego rysujemy resztę wiązki i wrzucamy do kolejki
+      nextRays.forEach(nr => {
+        let ex = x1, ey = y1;
+        let nextR = curr.r, nextC = curr.c;
+
+        if (nr.dir === 'RIGHT') { ex = curr.c + 1; nextC++; }
+        else if (nr.dir === 'LEFT') { ex = curr.c; nextC--; }
+        else if (nr.dir === 'DOWN') { ey = curr.r + 1; nextR++; }
+        else if (nr.dir === 'UP') { ey = curr.r; nextR--; }
+
+        rays.push({ x1, y1, x2: ex, y2: ey, color: nr.color });
+        queue.push({ r: nextR, c: nextC, dir: nr.dir, color: nr.color, steps: curr.steps + 1 });
+      });
+    }
+
+    this.stateManager.updateState({ rays });
+  }
+
+  // Oblicza kierunek odbicia od lustra
+  private reflectRay(inDir: Direction, isSlash: boolean): Direction | null {
+    // isSlash == true oznacza lustro w orientacji '/'
+    // isSlash == false oznacza lustro w orientacji '\'
+    if (isSlash) {
+      if (inDir === 'RIGHT') return 'UP';
+      if (inDir === 'DOWN') return 'LEFT';
+      if (inDir === 'LEFT') return 'DOWN';
+      if (inDir === 'UP') return 'RIGHT';
+    } else {
+      if (inDir === 'RIGHT') return 'DOWN';
+      if (inDir === 'UP') return 'LEFT';
+      if (inDir === 'LEFT') return 'UP';
+      if (inDir === 'DOWN') return 'RIGHT';
+    }
+    return null;
+  }
+
+  // --- WERYFIKACJA LOGIKI RGB I WARUNKÓW ZWYCIĘSTWA ---
+  private verifyOpticalCircuit(): void {
+    const state = this.stateManager.getState();
+    const { cols, rows, grid, receivers } = state;
+
+    // 1. Sprawdzamy, czy jakikolwiek promień dotknął miny
+    // Odczytujemy to analizując, czy w komórkach z minami kończy się promień
+    // Dla uproszczenia: jeśli promień wszedł na pole z miną, następuje zwarcie.
+    let hitMine = false;
+    grid.forEach((cell, idx) => {
+      if (cell.type === 'MINE') {
+        const r = Math.floor(idx / cols);
+        const c = idx % cols;
+        // Sprawdzamy, czy segment promienia przecina ten kafelek
+        const rayEnters = state.rays.some(ray => 
+          Math.floor(ray.x1) === c && Math.floor(ray.y1) === r
+        );
+        if (rayEnters) hitMine = true;
       }
     });
 
-    if (cluesInside.length === 0) {
-      this.punishPlayer("No clue inside patch");
-      return;
-    }
-    if (cluesInside.length > 1) {
-      this.punishPlayer("Too many clues inside patch");
+    if (hitMine) {
+      this.punishPlayer("Promień lasera zdestabilizował minę optyczną!");
       return;
     }
 
-    const targetClue = cluesInside[0];
+    // 2. Analizujemy zasilenie każdego odbiornika
+    // Odbiornik zbiera wszystkie kolory z wiązek, które z niego WYCHODZĄ poza plik siatki
+    let allSatisfied = true;
+    const updatedReceivers = receivers.map(rec => {
+      const incomingColors = new Set<LaserColor>();
 
-    // Walidacja sprawdzająca, czy zarysowany obszar odpowiada fizycznej wielkości klocka
-    if (selectedCells.length !== targetClue.value) {
-      this.punishPlayer("Patch size does not match clue");
-      return;
-    }
+      state.rays.forEach(ray => {
+        // Sprawdzamy segmenty wylatujące z siatki wprost do odbiornika
+        // np. odbiornik na prawym brzegu (c == cols) odbiera wiązki, których x2 == cols
+        // i leżą w odpowiednim wierszu
+        if (rec.index < rows) { // Odbiorniki boczne
+          const targetRow = rec.index;
+          // Sprawdzamy prawy brzeg
+          if (ray.x2 === cols && Math.floor(ray.y2) === targetRow && ray.x1 < ray.x2) {
+            incomingColors.add(ray.color);
+          }
+          // Sprawdzamy lewy brzeg (w zależności od generatora)
+          if (ray.x2 === 0 && Math.floor(ray.y2) === targetRow && ray.x1 > ray.x2) {
+            incomingColors.add(ray.color);
+          }
+        }
+        // Odbiorniki górne/dolne
+        if (rec.index >= rows) {
+          const targetCol = rec.index - rows; // Logika mapowania koordynatów docelowych
+          if (ray.y2 === rows && Math.floor(ray.x2) === targetCol && ray.y1 < ray.y2) {
+            incomingColors.add(ray.color);
+          }
+          if (ray.y2 === 0 && Math.floor(ray.x2) === targetCol && ray.y1 > ray.y2) {
+            incomingColors.add(ray.color);
+          }
+        }
+      });
 
-    const newPatch: Patch = {
-      clueIndex: targetClue.index,
-      cells: [...selectedCells],
-      ...(targetClue.isVariable ? { variable: targetClue.varLetter } : {})
-    };
-    const updatedPatches = [...patches, newPatch];
-    this.stateManager.updateState({ patches: updatedPatches });
+      // Mieszamy addytywnie zebrane wiązki
+      const blendedColor = this.blendColors(Array.from(incomingColors));
+      const isSatisfied = blendedColor === rec.targetColor;
+      if (!isSatisfied) allSatisfied = false;
 
-    const totalCellsCovered = updatedPatches.reduce((sum, p) => sum + p.cells.length, 0);
-    if (totalCellsCovered === puzzle.length) {
-      this.triggerWin();
-    } else {
+      return { ...rec, isSatisfied };
+    });
+
+    this.stateManager.updateState({ receivers: updatedReceivers });
+    this.uiController.render(this.stateManager.getState());
+
+    if (allSatisfied) {
+      // Sukces!
+      if (this.timerInterval) clearInterval(this.timerInterval);
+      const timeBonus = Math.max(0, 100 - state.time);
+      const nextLvl = state.level + 1;
+
+      this.stateManager.updateState({
+        status: 'WIN',
+        score: state.score + 150 + (state.level * 20) + timeBonus,
+        level: nextLvl,
+        bestLevel: Math.max(state.bestLevel, nextLvl)
+      });
       this.uiController.render(this.stateManager.getState());
+    } else {
+      this.punishPlayer("Układ optyczny nie dostarcza prawidłowych długości fali do celów!");
     }
+  }
+
+  // Mieszanie addytywne kolorów RGB do spektrum wtórnego
+  private blendColors(colors: LaserColor[]): LaserColor | null {
+    if (colors.length === 0) return null;
+    const hasR = colors.includes('R') || colors.includes('M') || colors.includes('Y') || colors.includes('W');
+    const hasG = colors.includes('G') || colors.includes('C') || colors.includes('Y') || colors.includes('W');
+    const hasB = colors.includes('B') || colors.includes('M') || colors.includes('C') || colors.includes('W');
+
+    if (hasR && hasG && hasB) return 'W'; // Biel
+    if (hasR && hasG) return 'Y'; // Żółty
+    if (hasR && hasB) return 'M'; // Magenta
+    if (hasG && hasB) return 'C'; // Cyjan
+    if (hasR) return 'R';
+    if (hasG) return 'G';
+    if (hasB) return 'B';
+    return null;
   }
 
   private punishPlayer(reason: string): void {
     const state = this.stateManager.getState();
-    console.log(`Punishment triggered: ${reason}`);
+    console.log(`Błąd optyczny: ${reason}`);
     
     const remainingLives = state.lives - 1;
     if (remainingLives <= 0) {
@@ -278,199 +445,99 @@ export class GameEngine {
     this.uiController.render(this.stateManager.getState());
   }
 
-  private triggerWin(): void {
-    const state = this.stateManager.getState();
-    if (this.timerInterval) clearInterval(this.timerInterval);
+  // --- GENERATOR ZAGADEK OPTYCZNYCH ---
+  private generateOpticalPuzzle(level: number, cols: number, rows: number) {
+    const totalCells = cols * rows;
+    const grid: GridElement[] = Array(totalCells).fill(null).map(() => ({ type: 'EMPTY', rotation: 0 }));
 
-    const timeBonus = Math.max(0, 100 - state.time);
-    const nextLvl = state.level + 1;
-
-    this.stateManager.updateState({
-      status: 'WIN',
-      score: state.score + 100 + (state.level * 10) + timeBonus,
-      level: nextLvl,
-      bestLevel: Math.max(state.bestLevel || 1, nextLvl)
-    });
-    this.uiController.render(this.stateManager.getState());
-  }
-
-  private getGridConfig(state: any) {
-    const cols = Math.sqrt(state.puzzle.length);
-    return { puzzle: state.puzzle, patches: state.patches, lives: state.lives, cols };
-  }
-
-  private isValidRectangle(cells: number[], cols: number): boolean {
-    if (cells.length === 0) return false;
-    
-    const rows = cells.map(c => Math.floor(c / cols));
-    const cls = cells.map(c => c % cols);
-    
-    const minRow = Math.min(...rows);
-    const maxRow = Math.max(...rows);
-    const minCol = Math.min(...cls);
-    const maxCol = Math.max(...cls);
-
-    const expectedSize = (maxRow - minRow + 1) * (maxCol - minCol + 1);
-    if (cells.length !== expectedSize) return false;
-
-    for (let r = minRow; r <= maxRow; r++) {
-      for (let c = minCol; c <= maxCol; c++) {
-        if (!cells.includes(r * cols + c)) return false;
-      }
+    // 1. Definiujemy stałe emitery na lewym brzegu strzelające w prawo
+    const emitters: Emitter[] = [
+      { index: 0, color: 'R', direction: 'RIGHT' },
+      { index: Math.floor(rows / 2), color: 'G', direction: 'RIGHT' }
+    ];
+    if (level >= 3) {
+      emitters.push({ index: rows - 1, color: 'B', direction: 'RIGHT' });
     }
-    return true;
-  }
 
-  private generateShikakuPuzzle(level: number): { grid: number[]; generatedPatches: Patch[] } {
-    const cols = level <= 2 ? 4 : (level <= 5 ? 5 : (level <= 10 ? 6 : (level <= 14 ? 7 : 8)));
-    const totalCells = cols * cols;
-    const grid = Array(totalCells).fill(0);
-    const generatedPatches: Patch[] = [];
-    
-    // Licznik jedynek wygenerowanych przez algorytm (staramy się unikać powstawania drobnicy)
-    let onesCount = 0;
-    // Maksymalna dozwolona całkowita pula jedynek dla danej układanki (twardy limit do max 2)
-    const maxOnesAllowed = 2;
+    const receivers: Receiver[] = [];
+    const usedCells = new Set<number>();
 
-    const isPrime = (n: number) => {
-      if (n <= 3) return n > 1;
-      if (n % 2 === 0 || n % 3 === 0) return false;
-      for (let i = 5; i * i <= n; i += 6) {
-        if (n % i === 0 || n % (i + 2) === 0) return false;
-      }
-      return true;
-    };
+    // 2. WYPALANIE GWARANTOWANEJ ŚCIEŻKI DLA KAŻDEGO EMITERA
+    emitters.forEach(em => {
+      let r = em.index;
+      let c = 0;
 
-    // Podstawowa wielkość minimalna odrzucająca pojedyncze bloki od wczesnych faz
-    const baseMinArea = level >= 8 ? 2 : 1;  
-    const maxArea = level <= 3 ? 6 : 12;
+      while (c < cols) {
+        usedCells.add(r * cols + c);
 
-    const divide = (r1: number, c1: number, r2: number, c2: number) => {
-      const h = r2 - r1 + 1;
-      const w = c2 - c1 + 1;
-      const area = h * w;
-
-      // Jeżeli wycinka dotknęła najmniejszego klocka (powierzchnia równa 1), ewidencjonujemy użycie
-      if (area === 1) {
-        onesCount++;
-        assignPatch(r1, c1, r2, c2);
-        return;
-      }
-
-      // Jeżeli zredukowano blok do aktualnie optymalnej minimalnej wielkości docelowej
-      if (area <= baseMinArea) {
-        assignPatch(r1, c1, r2, c2);
-        return;
-      }
-
-      let canKeep = area <= maxArea;
-      if (area > 5 && isPrime(area)) canKeep = false;
-      if ((h === cols || w === cols) && area > 3) canKeep = false;
-      if (Math.max(h, w) / Math.min(h, w) > 2.5 && area > 4) canKeep = false;
-
-      const minTarget = level <= 3 ? 2 : 4;
-      if (canKeep && area >= minTarget) {
-        if (Math.random() < 0.60) {
-          assignPatch(r1, c1, r2, c2);
-          return;
-        }
-      }
-
-      interface SplitOption { axis: 'H' | 'V'; index: number; }
-      const validSplits: SplitOption[] = [];
-
-      // Symulacja bezpiecznego cięcia poziomego
-      if (h > 1) {
-        for (let i = 0; i < h - 1; i++) {
-          const topArea = (i + 1) * w;
-          const bottomArea = (h - (i + 1)) * w;
-          
-          // Upewniamy się, czy symulowane cięcie nie narusza twardego limitu generowania jedynek
-          const generatesOne = topArea === 1 || bottomArea === 1;
-          if (!generatesOne || onesCount < maxOnesAllowed) {
-            if (topArea >= baseMinArea && bottomArea >= baseMinArea) {
-              if (h >= w) validSplits.push({ axis: 'H', index: r1 + i }, { axis: 'H', index: r1 + i });
-              else validSplits.push({ axis: 'H', index: r1 + i });
-            } else if (baseMinArea > 1 && (topArea >= 1 && bottomArea >= 1)) {
-              // Zezwalamy na warunkowy awaryjny podział z wygenerowaniem jedynki w razie zablokowania planszy
-              validSplits.push({ axis: 'H', index: r1 + i });
+        // Szansa na stworzenie pionowego objazdu (detour), jeśli mamy miejsce
+        // Warunek: nie jesteśmy w ostatniej kolumnie i rzut losowy się powiedzie
+        if (c < cols - 1 && Math.random() < 0.40) {
+          // Szukamy wolnego wiersza docelowego dla objazdu
+          const availableRows: number[] = [];
+          for (let nextR = 0; nextR < rows; nextR++) {
+            if (nextR !== r && !usedCells.has(nextR * cols + c) && !usedCells.has(nextR * cols + (c + 1))) {
+              availableRows.push(nextR);
             }
           }
-        }
-      }
 
-      // Symulacja bezpiecznego cięcia pionowego
-      if (w > 1) {
-        for (let i = 0; i < w - 1; i++) {
-          const leftArea = h * (i + 1);
-          const rightArea = h * (w - (i + 1));
-          
-          const generatesOne = leftArea === 1 || rightArea === 1;
-          if (!generatesOne || onesCount < maxOnesAllowed) {
-            if (leftArea >= baseMinArea && rightArea >= baseMinArea) {
-              if (w >= h) validSplits.push({ axis: 'V', index: c1 + i }, { axis: 'V', index: c1 + i });
-              else validSplits.push({ axis: 'V', index: c1 + i });
-            } else if (baseMinArea > 1 && (leftArea >= 1 && rightArea >= 1)) {
-              validSplits.push({ axis: 'V', index: c1 + i });
+          if (availableRows.length > 0) {
+            const targetR = availableRows[Math.floor(Math.random() * availableRows.length)];
+            const goesDown = targetR > r;
+
+            // Ustawiamy parę luster tworzącą idealny uskok ścieżki
+            // Pierwsze lustro skręca promień w pionie
+            grid[r * cols + c] = { 
+              type: 'MIRROR_1', 
+              rotation: goesDown ? 90 : 0 // Ukryta poprawna rotacja (\ dla w dół, / dla w górę)
+            };
+            
+            // Zaznaczamy pionowe przejście jako zajęte
+            const minR = Math.min(r, targetR);
+            const maxR = Math.max(r, targetR);
+            for (let stepR = minR; stepR <= maxR; stepR++) {
+              usedCells.add(stepR * cols + c);
             }
+
+            // Drugie lustro w wierszu docelowym wraca promień na kierunek RIGHT
+            grid[targetR * cols + c] = { 
+              type: goesDown ? 'MIRROR_2' : 'MIRROR_1', 
+              rotation: goesDown ? 0 : 0 // Właściwe odbicie w prawo
+            };
+
+            r = targetR; // Przeskakujemy do nowego wiersza
           }
         }
+        c++; // Krok w prawo
       }
 
-      // Jeżeli nie znaleziono dopuszczalnej ścieżki dekompozycji, zachowujemy element docelowy jako monolit
-      if (validSplits.length === 0) {
-        assignPatch(r1, c1, r2, c2);
-        return;
-      }
-
-      const split = validSplits[Math.floor(Math.random() * validSplits.length)];
-      if (split.axis === 'H') {
-        divide(r1, c1, split.index, c2);
-        divide(split.index + 1, c1, r2, c2);
+      // Umieszczamy odbiornik dokładnie tam, gdzie ścieżka dotarła do prawego brzegu
+      // Sprawdzamy, czy w tym miejscu nie ma już innego odbiornika (mieszanie barw)
+      const existingRec = receivers.find(rec => rec.index === r);
+      if (existingRec) {
+        const blended = this.blendColors([existingRec.targetColor, em.color]);
+        if (blended) existingRec.targetColor = blended;
       } else {
-        divide(r1, c1, r2, split.index);
-        divide(r1, split.index + 1, r2, c2);
+        receivers.push({ index: r, targetColor: em.color, isSatisfied: false });
       }
-    };
+    });
 
-    const assignPatch = (r1: number, c1: number, r2: number, c2: number) => {
-      const patchCells: number[] = [];
-      for (let r = r1; r <= r2; r++) {
-        for (let c = c1; c <= c2; c++) {
-          patchCells.push(r * cols + c);
-        }
+    // 3. WYPEŁNIANIE TŁA ZMYŁKAMI (Szum optyczny i Miny) ORAZ MIESZANIE ROTACJI
+    grid.forEach((cell, idx) => {
+      // Jeśli pole nie jest częścią żadnej ścieżki, wrzucamy losowy element jako pułapkę
+      if (!usedCells.has(idx) && Math.random() < 0.35) {
+        if (level >= 4 && Math.random() < 0.40) cell.type = 'MINE';
+        else cell.type = Math.random() < 0.5 ? 'MIRROR_1' : 'MIRROR_2';
       }
-      const clueCell = patchCells[Math.floor(Math.random() * patchCells.length)];
-      grid[clueCell] = patchCells.length;
-      generatedPatches.push({ clueIndex: clueCell, cells: patchCells });
-    };
 
-    // Budujemy bazowy zarys mapy i wypełniamy przestrzeń klockami
-    divide(0, 0, cols - 1, cols - 1);
-
-    // --- ALGEBRAICZNE ZMIENNE (X oraz Y) ---
-    // Filtrujemy wygenerowane łatki odrzucając banalne bloki o polu 1
-    const candidatePatches = generatedPatches.filter(p => p.cells.length > 1);
-
-    if (level >= 11 && candidatePatches.length > 0) {
-      // Przydzielamy pierwszą zmienną (X) do losowego klocka na planszy
-      const patchX = candidatePatches[Math.floor(Math.random() * candidatePatches.length)];
-      patchX.variable = 'X';
-      // Implementujemy ujemny kod pola powierzchni (-area), który jednoznacznie wywoła renderowanie tekstu X
-      grid[patchX.clueIndex] = -patchX.cells.length;
-
-      // Mechanika dodająca zmienną Y na najwyższych poziomach trudności (od levelu 13)
-      if (level >= 13 && candidatePatches.length > 1) {
-        // Logika matematyczna wymaga, by łatki oznaczone różnymi zmiennymi (X i Y) miały odmienne powierzchnie
-        const availableY = candidatePatches.filter(p => p.cells.length !== patchX.cells.length && p.variable !== 'X');
-        if (availableY.length > 0) {
-          const patchY = availableY[Math.floor(Math.random() * availableY.length)];
-          patchY.variable = 'Y';
-          grid[patchY.clueIndex] = -patchY.cells.length;
-        }
+      // Na koniec bezwzględnie SCRAMBLUJEMY (losujemy) rotacje luster, 
+      // by gracz musiał sam odkryć właściwe ułożenie
+      if (cell.type === 'MIRROR_1' || cell.type === 'MIRROR_2' || cell.type === 'SPLITTER') {
+        const rotations = [0, 90, 180, 270];
+        cell.rotation = rotations[Math.floor(Math.random() * rotations.length)];
       }
-    }
+    });
 
-    return { grid, generatedPatches };
+    return { grid, emitters, receivers };
   }
 }
