@@ -1,0 +1,3059 @@
+ Volume in drive C has no label.
+ Volume Serial Number is 64E4-665E
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game
+
+09.05.2026  15:18    <DIR>          .
+07.05.2026  19:07    <DIR>          ..
+09.05.2026  14:50                24 .gitignore
+09.05.2026  15:18                 0 catalog.dir
+09.05.2026  15:08               348 index.html
+09.05.2026  15:09    <DIR>          node_modules
+09.05.2026  15:09            32ÿ822 package-lock.json
+09.05.2026  15:08               283 package.json
+07.05.2026  18:58    <DIR>          public
+09.05.2026  15:16    <DIR>          src
+09.05.2026  15:08               501 tsconfig.json
+09.05.2026  14:53               815 vite.config.ts
+               7 File(s)         34ÿ793 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git
+
+09.05.2026  15:18    <DIR>          ..
+09.05.2026  15:17                73 COMMIT_EDITMSG
+09.05.2026  14:52               304 config
+09.05.2026  14:45                73 description
+09.05.2026  15:17               101 FETCH_HEAD
+09.05.2026  14:45                21 HEAD
+09.05.2026  14:45    <DIR>          hooks
+09.05.2026  15:17             1ÿ202 index
+09.05.2026  14:45    <DIR>          info
+09.05.2026  14:45    <DIR>          logs
+09.05.2026  15:17    <DIR>          objects
+09.05.2026  14:52    <DIR>          refs
+               6 File(s)          1ÿ774 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\hooks
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  14:45               478 applypatch-msg.sample
+09.05.2026  14:45               896 commit-msg.sample
+09.05.2026  14:45             4ÿ726 fsmonitor-watchman.sample
+09.05.2026  14:45               189 post-update.sample
+09.05.2026  14:45               424 pre-applypatch.sample
+09.05.2026  14:45             1ÿ649 pre-commit.sample
+09.05.2026  14:45               416 pre-merge-commit.sample
+09.05.2026  14:45             1ÿ374 pre-push.sample
+09.05.2026  14:45             4ÿ898 pre-rebase.sample
+09.05.2026  14:45               544 pre-receive.sample
+09.05.2026  14:45             1ÿ492 prepare-commit-msg.sample
+09.05.2026  14:45             2ÿ783 push-to-checkout.sample
+09.05.2026  14:45             2ÿ308 sendemail-validate.sample
+09.05.2026  14:45             3ÿ650 update.sample
+              14 File(s)         25ÿ827 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\info
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  14:45               240 exclude
+               1 File(s)            240 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\logs
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17             1ÿ209 HEAD
+09.05.2026  14:52    <DIR>          refs
+               1 File(s)          1ÿ209 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\logs\refs
+
+09.05.2026  14:52    <DIR>          .
+09.05.2026  14:45    <DIR>          ..
+09.05.2026  14:45    <DIR>          heads
+09.05.2026  14:52    <DIR>          remotes
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\logs\refs\heads
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  14:52    <DIR>          ..
+09.05.2026  15:17             1ÿ020 main
+               1 File(s)          1ÿ020 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\logs\refs\remotes
+
+09.05.2026  14:52    <DIR>          .
+09.05.2026  14:52    <DIR>          ..
+09.05.2026  14:55    <DIR>          origin
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\logs\refs\remotes\origin
+
+09.05.2026  14:55    <DIR>          .
+09.05.2026  14:52    <DIR>          ..
+09.05.2026  14:55               142 HEAD
+09.05.2026  15:17               453 main
+               2 File(s)            595 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects
+
+09.05.2026  15:17    <DIR>          .
+09.05.2026  15:13    <DIR>          00
+09.05.2026  15:13    <DIR>          01
+09.05.2026  15:13    <DIR>          02
+09.05.2026  15:13    <DIR>          03
+09.05.2026  15:13    <DIR>          04
+09.05.2026  15:13    <DIR>          05
+09.05.2026  15:13    <DIR>          06
+09.05.2026  14:45    <DIR>          09
+09.05.2026  15:13    <DIR>          0a
+09.05.2026  15:13    <DIR>          0b
+09.05.2026  15:13    <DIR>          0d
+09.05.2026  15:13    <DIR>          0e
+09.05.2026  15:13    <DIR>          10
+09.05.2026  15:13    <DIR>          11
+09.05.2026  15:13    <DIR>          12
+09.05.2026  15:13    <DIR>          13
+09.05.2026  15:13    <DIR>          14
+09.05.2026  15:13    <DIR>          15
+09.05.2026  15:13    <DIR>          16
+09.05.2026  15:13    <DIR>          18
+09.05.2026  15:13    <DIR>          19
+07.05.2026  18:59    <DIR>          1a
+09.05.2026  15:13    <DIR>          1b
+09.05.2026  15:13    <DIR>          1d
+09.05.2026  15:13    <DIR>          1e
+09.05.2026  14:45    <DIR>          1f
+09.05.2026  15:13    <DIR>          20
+09.05.2026  15:13    <DIR>          22
+09.05.2026  15:13    <DIR>          23
+09.05.2026  15:13    <DIR>          24
+09.05.2026  15:13    <DIR>          25
+09.05.2026  15:13    <DIR>          26
+09.05.2026  15:13    <DIR>          27
+09.05.2026  15:13    <DIR>          28
+09.05.2026  15:13    <DIR>          2a
+09.05.2026  15:13    <DIR>          2b
+09.05.2026  15:13    <DIR>          2c
+09.05.2026  14:45    <DIR>          2d
+09.05.2026  15:13    <DIR>          2e
+09.05.2026  15:13    <DIR>          2f
+09.05.2026  14:45    <DIR>          30
+09.05.2026  15:13    <DIR>          31
+09.05.2026  14:45    <DIR>          32
+09.05.2026  15:13    <DIR>          33
+09.05.2026  15:13    <DIR>          35
+09.05.2026  15:13    <DIR>          36
+09.05.2026  15:13    <DIR>          37
+09.05.2026  15:13    <DIR>          39
+09.05.2026  15:13    <DIR>          3a
+09.05.2026  15:13    <DIR>          3b
+09.05.2026  15:13    <DIR>          3c
+09.05.2026  15:13    <DIR>          3d
+09.05.2026  15:13    <DIR>          3e
+09.05.2026  14:45    <DIR>          3f
+09.05.2026  15:13    <DIR>          40
+09.05.2026  15:13    <DIR>          41
+09.05.2026  15:13    <DIR>          42
+09.05.2026  15:13    <DIR>          43
+09.05.2026  15:13    <DIR>          44
+09.05.2026  15:13    <DIR>          45
+09.05.2026  15:13    <DIR>          46
+09.05.2026  15:13    <DIR>          48
+09.05.2026  15:13    <DIR>          49
+09.05.2026  15:13    <DIR>          4b
+09.05.2026  15:13    <DIR>          4c
+09.05.2026  15:13    <DIR>          4d
+09.05.2026  15:13    <DIR>          4e
+09.05.2026  15:13    <DIR>          4f
+09.05.2026  15:13    <DIR>          50
+07.05.2026  18:59    <DIR>          51
+09.05.2026  15:13    <DIR>          52
+09.05.2026  15:13    <DIR>          53
+09.05.2026  15:13    <DIR>          54
+09.05.2026  15:13    <DIR>          55
+09.05.2026  15:13    <DIR>          56
+09.05.2026  15:13    <DIR>          57
+09.05.2026  15:13    <DIR>          58
+09.05.2026  15:13    <DIR>          59
+09.05.2026  15:13    <DIR>          5a
+09.05.2026  15:13    <DIR>          5b
+09.05.2026  14:45    <DIR>          5c
+09.05.2026  15:13    <DIR>          5d
+09.05.2026  15:13    <DIR>          5e
+09.05.2026  15:13    <DIR>          5f
+09.05.2026  15:13    <DIR>          61
+09.05.2026  15:13    <DIR>          62
+09.05.2026  15:13    <DIR>          63
+09.05.2026  15:13    <DIR>          64
+09.05.2026  15:13    <DIR>          65
+09.05.2026  15:13    <DIR>          66
+09.05.2026  15:13    <DIR>          67
+09.05.2026  15:13    <DIR>          68
+09.05.2026  15:13    <DIR>          69
+09.05.2026  15:17    <DIR>          6c
+09.05.2026  15:13    <DIR>          6d
+09.05.2026  15:13    <DIR>          6e
+09.05.2026  15:13    <DIR>          6f
+09.05.2026  15:17    <DIR>          70
+09.05.2026  15:13    <DIR>          71
+09.05.2026  15:13    <DIR>          72
+09.05.2026  15:13    <DIR>          73
+09.05.2026  15:13    <DIR>          74
+09.05.2026  15:13    <DIR>          75
+09.05.2026  15:13    <DIR>          76
+09.05.2026  15:13    <DIR>          77
+09.05.2026  14:45    <DIR>          78
+09.05.2026  15:13    <DIR>          79
+07.05.2026  18:59    <DIR>          7a
+09.05.2026  15:13    <DIR>          7b
+09.05.2026  15:13    <DIR>          7c
+09.05.2026  15:13    <DIR>          7d
+09.05.2026  15:13    <DIR>          7e
+09.05.2026  15:13    <DIR>          80
+09.05.2026  15:13    <DIR>          81
+09.05.2026  15:13    <DIR>          82
+09.05.2026  15:13    <DIR>          83
+09.05.2026  15:13    <DIR>          84
+09.05.2026  15:13    <DIR>          85
+09.05.2026  15:13    <DIR>          88
+09.05.2026  14:45    <DIR>          89
+09.05.2026  15:13    <DIR>          8a
+09.05.2026  15:13    <DIR>          8b
+09.05.2026  14:45    <DIR>          8c
+09.05.2026  15:13    <DIR>          8e
+09.05.2026  15:13    <DIR>          8f
+09.05.2026  15:13    <DIR>          90
+09.05.2026  15:13    <DIR>          91
+09.05.2026  15:13    <DIR>          92
+09.05.2026  15:13    <DIR>          93
+09.05.2026  15:13    <DIR>          94
+09.05.2026  15:13    <DIR>          96
+09.05.2026  15:13    <DIR>          97
+09.05.2026  15:13    <DIR>          98
+09.05.2026  15:13    <DIR>          99
+09.05.2026  15:17    <DIR>          9a
+09.05.2026  15:13    <DIR>          9c
+09.05.2026  15:13    <DIR>          9d
+09.05.2026  15:13    <DIR>          9e
+09.05.2026  15:13    <DIR>          9f
+09.05.2026  15:13    <DIR>          a0
+09.05.2026  15:13    <DIR>          a1
+09.05.2026  15:13    <DIR>          a2
+09.05.2026  15:13    <DIR>          a3
+09.05.2026  15:13    <DIR>          a4
+09.05.2026  15:13    <DIR>          a5
+09.05.2026  15:13    <DIR>          a6
+09.05.2026  15:13    <DIR>          a7
+09.05.2026  15:13    <DIR>          a8
+09.05.2026  15:13    <DIR>          a9
+09.05.2026  15:13    <DIR>          aa
+09.05.2026  15:13    <DIR>          ab
+09.05.2026  15:13    <DIR>          ad
+09.05.2026  15:13    <DIR>          ae
+09.05.2026  15:13    <DIR>          af
+09.05.2026  15:13    <DIR>          b0
+09.05.2026  15:13    <DIR>          b1
+09.05.2026  15:13    <DIR>          b2
+09.05.2026  15:13    <DIR>          b3
+09.05.2026  15:13    <DIR>          b4
+09.05.2026  15:13    <DIR>          b5
+09.05.2026  15:13    <DIR>          b6
+09.05.2026  15:13    <DIR>          b7
+09.05.2026  15:13    <DIR>          b8
+09.05.2026  15:13    <DIR>          b9
+09.05.2026  15:13    <DIR>          ba
+09.05.2026  15:13    <DIR>          bb
+09.05.2026  15:13    <DIR>          bc
+09.05.2026  15:13    <DIR>          bd
+09.05.2026  15:13    <DIR>          be
+09.05.2026  14:51    <DIR>          bf
+09.05.2026  15:13    <DIR>          c0
+09.05.2026  15:13    <DIR>          c2
+09.05.2026  14:45    <DIR>          c3
+09.05.2026  15:13    <DIR>          c4
+09.05.2026  15:13    <DIR>          c5
+09.05.2026  15:13    <DIR>          c6
+09.05.2026  15:13    <DIR>          c7
+09.05.2026  15:13    <DIR>          c8
+09.05.2026  15:13    <DIR>          c9
+09.05.2026  15:13    <DIR>          ca
+09.05.2026  15:13    <DIR>          cc
+09.05.2026  15:13    <DIR>          cd
+09.05.2026  15:13    <DIR>          ce
+09.05.2026  15:13    <DIR>          cf
+09.05.2026  15:13    <DIR>          d0
+09.05.2026  15:13    <DIR>          d2
+09.05.2026  15:13    <DIR>          d4
+09.05.2026  15:13    <DIR>          d5
+09.05.2026  15:13    <DIR>          d6
+09.05.2026  15:13    <DIR>          d7
+09.05.2026  15:13    <DIR>          d8
+09.05.2026  15:13    <DIR>          d9
+09.05.2026  14:45    <DIR>          db
+09.05.2026  15:13    <DIR>          dc
+09.05.2026  15:13    <DIR>          dd
+09.05.2026  15:13    <DIR>          de
+09.05.2026  15:13    <DIR>          df
+09.05.2026  15:13    <DIR>          e0
+09.05.2026  15:13    <DIR>          e1
+09.05.2026  15:13    <DIR>          e2
+09.05.2026  15:13    <DIR>          e3
+09.05.2026  14:45    <DIR>          e4
+09.05.2026  15:13    <DIR>          e5
+09.05.2026  15:13    <DIR>          e6
+09.05.2026  15:13    <DIR>          e7
+09.05.2026  15:13    <DIR>          e8
+07.05.2026  18:59    <DIR>          e9
+09.05.2026  15:13    <DIR>          ea
+09.05.2026  14:45    <DIR>          eb
+09.05.2026  15:13    <DIR>          ec
+09.05.2026  15:13    <DIR>          ed
+09.05.2026  15:13    <DIR>          ee
+09.05.2026  14:45    <DIR>          ef
+09.05.2026  15:13    <DIR>          f1
+09.05.2026  15:13    <DIR>          f2
+09.05.2026  14:45    <DIR>          f3
+09.05.2026  15:13    <DIR>          f5
+09.05.2026  15:13    <DIR>          f6
+09.05.2026  15:13    <DIR>          f7
+09.05.2026  15:13    <DIR>          f8
+09.05.2026  15:13    <DIR>          fa
+09.05.2026  15:13    <DIR>          fb
+09.05.2026  15:13    <DIR>          fd
+09.05.2026  15:13    <DIR>          fe
+09.05.2026  15:13    <DIR>          ff
+07.05.2026  18:25    <DIR>          info
+07.05.2026  18:25    <DIR>          pack
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\00
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13         4ÿ566ÿ989 0370fe4521ea9b841339b0c178dc9ed81ddabe
+09.05.2026  15:13               213 5a7457b695c2704d3cad6180d08e83c0fe2cd7
+09.05.2026  15:13                78 5ffed36e46a0061e8401c80cc1065cf417d042
+09.05.2026  14:45                78 98899987e7e18e80e56e0c906c739f24a53f35
+09.05.2026  15:13               438 a1037aa6096bb36ad20b26aeb6374bc4e2b4db
+09.05.2026  14:45                78 b3af2aaa06b15d5175ffc05b1db91831cf1a16
+09.05.2026  15:13               114 efc396a17b2a16d0a18a45995ab6f8bac7cd9e
+               7 File(s)      4ÿ567ÿ988 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\01
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ568 0ac941e1568d59c89b67cb649051a14608ee79
+09.05.2026  15:13               249 4463f962f9db08da642cdcc33a6bbfc3ccb9a2
+               2 File(s)          1ÿ817 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\02
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                99 5a1ce08ee8d0ac397a049712c8cd22feed8e0d
+09.05.2026  15:13               683 a4bf4f47b79d30ed4fe8a03715abe8db731a8e
+               2 File(s)            782 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\03
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13           106ÿ738 59e6bc561b497fb18ce6559218b5111352c26b
+09.05.2026  15:13             1ÿ972 d9ed1766f78a8472f7b2485a7cf0f40cb89525
+               2 File(s)        108ÿ710 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\04
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ136 0e138d2315d19df54d09fa052e0f168200cc70
+09.05.2026  15:13             1ÿ117 669d8e6f883c90affdeb4749a47b6e426fee14
+               2 File(s)          2ÿ253 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\05
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13         2ÿ160ÿ369 54fc3fc707ce3edbc3c4f8f4d77f8aa3def7ba
+               1 File(s)      2ÿ160ÿ369 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\06
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:17               278 08c6575e28b1ac24d54799a2be05bdf0556852
+09.05.2026  15:13             1ÿ581 23c668e9fd0ccb65f05c33bead51a420f458aa
+09.05.2026  15:13                51 765e32f8042f38941a2fbd89b8e08b1882ecbb
+09.05.2026  15:13               270 bc6239e8e5146d6e2ef913e6010d4a30184261
+09.05.2026  15:13             1ÿ092 d1274a025a8a30879f31c9c6703a14f79f73b9
+               5 File(s)          3ÿ272 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\09
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               201 80d242c065aebed054ee03ce25b6c19113c4d3
+               1 File(s)            201 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\0a
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                60 49859bdca35f2a663e182cffd11657d27526f7
+               1 File(s)             60 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\0b
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13           103ÿ057 cd9bb90d43883723b4702caee46d0f4e2e1012
+               1 File(s)        103ÿ057 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\0d
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               521 1ffaa63500b2cd2274f1cc8cf06415a396c807
+09.05.2026  15:13             1ÿ794 4ff3d842145401fa7c2da32918e43fedbc3868
+09.05.2026  15:13             7ÿ502 8cd9046cdb66ed699991a2f74cf4b2f458d1d1
+09.05.2026  15:13             3ÿ811 de95196f5c90181637a49d95660cb2f967b9c4
+               4 File(s)         13ÿ628 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\0e
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                46 f4346bfc58179ee37bb2e87c766b6559ed8df6
+               1 File(s)             46 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\10
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               269 def037d1c7b0d15a612976ee76a8028db39776
+09.05.2026  15:13               359 f657d7269a6d3b0b24d5c1f7195c6d24e1f9a8
+               2 File(s)            628 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\11
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               356 2413b584126ebe668f6f58ea14e0d83b6fe1fe
+09.05.2026  15:13               514 9624e8744e125e86959fe33a68e091c256eb0d
+09.05.2026  15:13           110ÿ287 bd919bbd565f3ef6d1a68b74227145857ddeaa
+               3 File(s)        111ÿ157 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\12
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               188 c1788a9cb51b33e61064446fe2f52050abe07e
+09.05.2026  15:13           117ÿ214 f4460b8d7f5f4930779e24b1dae10138de3796
+               2 File(s)        117ÿ402 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\13
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               514 598a29725794c37cc1d51ff826a0c8c269c172
+               1 File(s)            514 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\14
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45            19ÿ411 12cadec309b5ee5ca658e89e5e4b5e8bf1aba7
+09.05.2026  15:13                78 337a11490553aed2f79abd269be406a70e5e88
+09.05.2026  15:13           332ÿ071 508e8dc3effb02a4bd808e61770aacbc8b13b7
+09.05.2026  15:13               145 fabf07a69379642ad0133bd0d10d27d42620ce
+               4 File(s)        351ÿ705 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\15
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               258 be4364791e87e62e440e489e299952d232a068
+               1 File(s)            258 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\16
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ695 1dce90e1e20ab3ff653e6715efaecf574b8e34
+               1 File(s)          1ÿ695 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\18
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45             1ÿ745 635626717a571eaaf2fb357ddb77d627e44709
+09.05.2026  15:13               654 6d3399c6a00c89d1daf3d5b537152b1973e5d4
+               2 File(s)          2ÿ399 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\19
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                61 c62bf7a0004aab7bd188aae51ff2564fdfc18d
+09.05.2026  14:45           110ÿ940 d6c5be6d04266964a3b1d6978738dbf336d18d
+               2 File(s)        111ÿ001 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\1a
+
+07.05.2026  18:59    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\1b
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               467 31f9809f2cc41616cc9527e7f601d256e669f8
+               1 File(s)            467 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\1d
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               540 69cc06b292ddf9f2e4e0f3f9da1829bc4716b2
+09.05.2026  15:13             2ÿ265 ab928364fbc4a879f37c9dc2bcbd11436f0779
+09.05.2026  14:45               336 c8be5026b59a8936d365dacbd297eca402ec1f
+               3 File(s)          3ÿ141 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\1e
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                78 2b1d36c9c6cb11576c4aa305dd9b5842ced00f
+               1 File(s)             78 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\1f
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               663 033615c6c6b004a4e9b9ea909090ea36315d46
+               1 File(s)            663 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\20
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               655 27e8dcf3787f5aac9fcd835e2b80cb75a39211
+               1 File(s)            655 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\22
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               518 7a7952ade22f6ac18139ea8fe94fc094554911
+09.05.2026  15:13             1ÿ879 9095dcbf887e2f3fbdab7fed570de2bcfaaea3
+09.05.2026  15:13             1ÿ663 a0c174600b0376d9a7a2b010ce5652192e2114
+               3 File(s)          4ÿ060 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\23
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ692 29194048f1a21a15c378dae03a46754787917c
+09.05.2026  15:13               546 4a01f9566389b36af32b53fa8e869553f2dc4f
+09.05.2026  15:13             1ÿ811 f9eda57f7383b5291361e4593cf2fdef5409ba
+               3 File(s)          4ÿ049 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\24
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               751 1380c8d680a2c5b17dacf02f4d9c3f7461c7d9
+09.05.2026  15:13             2ÿ525 83b96973ce14d13501675311b5b41d90faad58
+09.05.2026  15:13               361 9f417d2703e27c453ed15e1e0ff60aff80811f
+               3 File(s)          3ÿ637 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\25
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               467 6d8fce4e3bf2474315816d13c2fb0577ebf167
+09.05.2026  15:13               597 b64c97c10815ac388a1d2c90bd1e2a62d47d57
+               2 File(s)          1ÿ064 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\26
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               650 fbcb526ab2e7bc103a7dd6e10ed3307655cba8
+               1 File(s)            650 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\27
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ197 5a4f64c2f8df215341a74d61e2aa2d05d61f78
+09.05.2026  14:45             1ÿ240 e8a1829ea0f30e8d5719b65cbdfb1d6e3e0254
+09.05.2026  15:13             8ÿ973 f01c7358e9f05a753cabfa5a85e83a9755111f
+               3 File(s)         11ÿ410 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\28
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               670 fb80b9a2ae782419780766dd7cdd241033abb7
+               1 File(s)            670 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\2a
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               541 2772a429035090cbf044f10ee817c534452d85
+09.05.2026  15:13               947 5623d90c5b2a7262656669581b9c58e9361da9
+               2 File(s)          1ÿ488 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\2b
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               822 4ce55b451c20ea9630d3056fa5e917aa66635a
+09.05.2026  15:13             4ÿ537 c66fb6c7107deac2bf7ca5daac235bcba26073
+09.05.2026  15:13                78 f1f2d4df7c3ca20a27b67befe6a6597023e38a
+               3 File(s)          5ÿ437 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\2c
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ124 3cf94acaa3ed2577a43f58983e916c60cba744
+09.05.2026  15:13           133ÿ607 56042e22d0c36adeab6b280ae19695cc700727
+09.05.2026  15:13               803 e3dfb022e5bcd0b4e8b0bfce7d6b59c66a7e24
+               3 File(s)        135ÿ534 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\2d
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45           129ÿ777 32703f93578d1049536cdd9a117e8d5ea478fa
+09.05.2026  14:45               264 87b0a7fcb4c6a6900360c689c69cff5a2de16a
+               2 File(s)        130ÿ041 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\2e
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               637 7298e62d7e46af134457f88cd6935d2eb6666d
+09.05.2026  15:13               290 a5827c627331d5d7a2e38e0acca3b9824a668d
+               2 File(s)            927 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\2f
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               385 3c430c0310cf5c30d97f979769bda4875617f5
+09.05.2026  15:13             1ÿ146 3ce939ade1dcb07a518cc0ed085817e112c3fd
+               2 File(s)          1ÿ531 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\30
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45            49ÿ494 3a249de3619fbbcdfb95bd841a10d6c3ab3310
+               1 File(s)         49ÿ494 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\31
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               179 6e1cf462f076c803b4f5e023c4d81bdba308b9
+09.05.2026  14:45               931 9cba5e3325d30d67eef8bf09db8b24a47c5c95
+               2 File(s)          1ÿ110 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\32
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               712 6223e409baf82364a0c054e098b04029a3a5c4
+               1 File(s)            712 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\33
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45             1ÿ089 5c0783019bca5ac945f2a8ca14f34881a09cd2
+09.05.2026  15:13             3ÿ850 688dbd0f28d201c5a154da1aa910599726a626
+09.05.2026  15:13             4ÿ898 bb551633285b58add72fead23d584c305cac4a
+               3 File(s)          9ÿ837 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\35
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               296 075988c69c7316f5d64361fc65795e1e5e6c68
+09.05.2026  15:13             1ÿ315 641a6426e9951d9aa06448df7f7e0389729b6d
+09.05.2026  15:13               994 abb57d88a7613ff9c47a84cfb3ba4afbedea84
+09.05.2026  14:45                78 ceab0227cef899cab2ac106b6802ce8717cd0d
+               4 File(s)          2ÿ683 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\36
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               532 c71160fb5fd8a969a7a59b3aba1a83f575ad4f
+09.05.2026  15:13               259 e4e47fc2b69bef3db8c7477657644fd27f5fd8
+09.05.2026  15:13             1ÿ130 e956203299ccfc31048e2a504655cc327955d0
+               3 File(s)          1ÿ921 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\37
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               300 2d4b642cf553e8234986a22441cce3aea3d11f
+09.05.2026  15:13               671 f56aa49f8e009ed7e582cb3e905a1e0d1666fd
+               2 File(s)            971 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\39
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             8ÿ721 115c7fd790f74c45db6c4f3f75d63decfead7f
+09.05.2026  14:45             1ÿ792 8883445e8daee5fac1ee30fb7897d176d7a51e
+09.05.2026  15:13            20ÿ549 8a71d09992bba67db82dd83d82d53eccf938e5
+               3 File(s)         31ÿ062 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\3a
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               130 0c5b85fd5c3a755bb07e7da3474a4633023f3a
+09.05.2026  15:13               193 1a7340ea8e78832c889435fd54a319b5ed4092
+09.05.2026  15:13               347 3d79c938026c5559f0f5538b6ab0d47d1e7a27
+09.05.2026  15:13               283 8c04158b13a35118d823694f198c16a57bd545
+               4 File(s)            953 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\3b
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               317 9b7e9bb7fb7e1963cdabc5d77a62fe10e76948
+               1 File(s)            317 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\3c
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ671 9d8b9710ea5600ba332cd037f536d9e020f169
+               1 File(s)          1ÿ671 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\3d
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               174 5e08f26a858aac7d34a7dc6e8f99d156133229
+09.05.2026  15:13               484 b5faa718232c230c6eb799e3845ce3ecc2459c
+09.05.2026  15:13                39 bc1ca591c0557e35b6004aeba250e6a70b56e3
+               3 File(s)            697 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\3e
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               847 111a39de010f548d397f06f8f964191834b869
+09.05.2026  15:13             2ÿ058 e27b5250b6ad73b6bf62adead9fd8e4ea3186d
+               2 File(s)          2ÿ905 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\3f
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45           398ÿ147 10195aebbe9fc248f05f5ebcc3d5463fe37c33
+               1 File(s)        398ÿ147 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\40
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               545 3dc87d8aa31ac119f1e28f2f2100fd9b5dc0a0
+09.05.2026  15:13               236 bf1284554c31563142dfbf913d5e2d9ddf2c44
+               2 File(s)            781 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\41
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               652 6c53f21f051c9934f50ad6e4bf3cb13f22d288
+09.05.2026  15:13           104ÿ717 93ea320660a0f1659a6e5028a879342d63a139
+09.05.2026  15:13           237ÿ976 d5af958adf81803b02ea4b98c66d1a13fb0b22
+               3 File(s)        343ÿ345 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\42
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                78 4dfb122f8f66f4e0f71affddedba62adcb7bde
+09.05.2026  15:13               964 9c218200de18c99bfb56c4e022fb3a903f972b
+               2 File(s)          1ÿ042 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\43
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               289 06b09cce14fcf4a9c0b88420601e0f503d2fc7
+09.05.2026  15:13             5ÿ096 0e2d0ff0b2f2a084d00fbfbcf9a229d0a7bfff
+09.05.2026  15:13             1ÿ198 b1bd24a869e23f00bdaaf25a13ab90eb24c6ff
+               3 File(s)          6ÿ583 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\44
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               550 311afb001295cd4256770140a43eacf099e221
+09.05.2026  15:13               346 689917fc57d210b1a4dfad4187ac721c6eb16d
+09.05.2026  15:13               834 df2295368a9cab695bdfe49634a28e45996b1c
+               3 File(s)          1ÿ730 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\45
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13            15ÿ085 5b9691a509f083063b03a121d172671c8eb398
+09.05.2026  15:13             5ÿ365 8a68e56a5deed18b289431a6ace1eea4d0f867
+09.05.2026  15:13                60 9b6a34e9ba62e7afccf02009fc848b2def1b8d
+09.05.2026  14:45            97ÿ028 cb978e0dda8ecbf9132212e2f2f680b4fa7fb8
+09.05.2026  14:45               361 df21f286474a7367dfcb1033a335dd9c8cb5d6
+               5 File(s)        117ÿ899 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\46
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               249 220bdb50a336a25eeeba47739cbb251b2e4483
+09.05.2026  15:13               987 b0b08951fb8579a1f1e373eb539985ddbb43c2
+09.05.2026  15:13               513 c9b95d4b83c8eba2d9ed406f49930a9fdaf3e3
+09.05.2026  15:13                78 ecf1dace5f4ec8d8a054cf9a650b13790436af
+               4 File(s)          1ÿ827 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\48
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               271 0326b5720dc3ea1730a8d48f3bd1b409d30a99
+09.05.2026  15:13               880 abe00712c9459fa2f3be10327c15d7a972c481
+09.05.2026  14:45               299 d71148f727d331ed6b2e42965253a8cc9dd2a0
+               3 File(s)          1ÿ450 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\49
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45            15ÿ240 3675d1107af82d4c6ea13417385d2181c4aa1a
+09.05.2026  15:13             3ÿ203 5d849c42845b2679ad4081fe1495c040bf1ed7
+09.05.2026  15:13               463 65322d636016d678fccdd94c3aacdf1fc50075
+09.05.2026  15:13               541 b370aa99cf9350d38180133adb2095c8eb01a8
+09.05.2026  15:13               564 b9ad8fbbc3c58b94977e906a7e67dcedba1a4c
+09.05.2026  15:13               236 c670307650e783963bae06e2fa470f52528047
+               6 File(s)         20ÿ247 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\4b
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               571 4bdb82f0a1f239a09de7dc6664a1de3cb9fc7a
+               1 File(s)            571 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\4c
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ205 2a4ded060dee3aaa20416f2ca39c1c89f7423a
+09.05.2026  15:13               713 7aaadc6a04c03f2175500aca99e23bdc462c9b
+               2 File(s)          1ÿ918 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\4d
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               851 5a8917eaeb59ea5d510613bdbbe16263c890b4
+09.05.2026  15:13                95 64dac5f86cbed6a73d115801f2ccde69bdc472
+09.05.2026  15:13               573 88c831b4281dd7179beae55e191637bab7f080
+09.05.2026  15:13                49 f6a1aca10c42f674f4403b803ced48e030253f
+               4 File(s)          1ÿ568 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\4e
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45           102ÿ987 02b82133d128f73e35f33a0698277e4546c8c4
+09.05.2026  15:13            22ÿ249 165ddd3da28731db45147cd936d26e2bc26d1a
+09.05.2026  15:13               280 352813b2768d55148a299a7e4534534a4d4a5c
+09.05.2026  14:45                78 3948f87aaa221c71f6bc5cf59cb1382a4c98c7
+               4 File(s)        125ÿ594 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\4f
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               304 90ab1c5759d058dadc35e63472c24f8eeb944f
+               1 File(s)            304 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\50
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                79 0c5cb7186bef0f9e9d8a1ca5b4d08932354cb4
+               1 File(s)             79 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\51
+
+07.05.2026  18:59    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\52
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             3ÿ501 08d31d409d1b0dc0f797612c2fbb0dcdf56b9f
+09.05.2026  15:13               823 3b05dc8b9573752ea2b305481b13db716e4e92
+09.05.2026  15:13               105 61efcff594131b98cb302bede9312db122930c
+               3 File(s)          4ÿ429 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\53
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               199 4746dbdb88c356447bc19d1e6121f48f179cf1
+09.05.2026  14:45                51 81b2f934c4993011fcecd976a89a90f69c2b88
+09.05.2026  14:45           105ÿ301 8a4fb2c688702053be4a9142e5c34e4ccd4e4b
+               3 File(s)        105ÿ551 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\54
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13            28ÿ118 52bfe2e401f0397e18f9a373736a6117419506
+09.05.2026  15:13               127 59983b3f2148ca4bc05ad90718a3c0eb765b9a
+09.05.2026  15:13               123 6ed92a2358a502f4d4174e013ada6f69d1d124
+               3 File(s)         28ÿ368 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\55
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13            23ÿ530 5613ca58fc10968e2c76066d562202211d7051
+09.05.2026  15:13                52 cfaf3ccc7e0fd2479b5efea91dd6c8cd66282b
+09.05.2026  15:13               825 cff43d29e4b7555e5197a79f2885659d27f93f
+09.05.2026  15:13             1ÿ378 dec7f8b4369a82301a9f2456f4c55860bcccb5
+09.05.2026  15:13           108ÿ009 ea56f33dfa7cc3fc2f18577702816afa3cb7eb
+               5 File(s)        133ÿ794 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\56
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               725 3ee82d2daccc93d6bb1c0053a89b51662042ce
+09.05.2026  15:13                78 c4095121e7eea05cbc0d682bae263e01c4b23a
+09.05.2026  15:13             1ÿ182 c6ba15caae2d76c607eae081e0c3ecf91e5bed
+               3 File(s)          1ÿ985 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\57
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               128 8cdb4cb9babb17e4e08b4f6a30c2e195d2afed
+09.05.2026  15:13            64ÿ242 9126edf1b60dabdeca1b9740ddc3c9a5ce70fd
+09.05.2026  15:13         1ÿ031ÿ394 b594554e8b0b8101f83c7aad976958c82be43f
+09.05.2026  15:13               239 f851fd7f4a0cdd0e155b002007b6acb8a4c4a9
+               4 File(s)      1ÿ096ÿ003 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\58
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               646 16848726201e89b3acb0483d288d496bfd2c0a
+               1 File(s)            646 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\59
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ387 9a614bf2b6a1e07faf74e8acae3e57273bc628
+               1 File(s)          1ÿ387 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\5a
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               687 15cd49ebec1e309131da833e39dab29e06056d
+09.05.2026  14:45             2ÿ320 620af1d8fdafcdbc2b893e436b00a9096f586b
+09.05.2026  14:45            39ÿ272 77191e48d0cfb00ac75e2f223b16f754f17c07
+09.05.2026  15:13             2ÿ622 d7216a1a595e15e91777fb5b06d8512eede2b0
+               4 File(s)         44ÿ901 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\5b
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ513 7d116f7af65618fb9d0fad7edaceccb8ceb0bf
+               1 File(s)          1ÿ513 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\5c
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45             1ÿ359 0c73c5c1fa4484d71b714297ea9fffd4bea789
+               1 File(s)          1ÿ359 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\5d
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               185 d1b0c72c95d0d771f9ad6a7c701c9a4548fec4
+               1 File(s)            185 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\5e
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               721 02521b42b6de18a03ce4f3afe875c39a567ab9
+09.05.2026  14:45                58 7cc6f758369f8a9733980ee0743cf30220cbdc
+09.05.2026  15:13             6ÿ204 9f5219d5e2721af80af54ac8dadaea0976dfd0
+               3 File(s)          6ÿ983 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\5f
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13           105ÿ396 9440ecd907c45ed97c100c26218a6ddba76214
+09.05.2026  14:45                77 f2f9e88d6c8b504e5429cef1e5b825856d4ec0
+               2 File(s)        105ÿ473 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\61
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13         1ÿ439ÿ377 2a1f7eed0fc030660b769480455aabe77b82c2
+09.05.2026  15:13             2ÿ182 2b404018ece911ab71fc0a8db326d16e6b1287
+09.05.2026  14:45            44ÿ359 46255048d753f82fff85659c3f58dba3a5a308
+09.05.2026  15:13             8ÿ635 4962d76c8609022129a1921f7bf6bfe10ce56c
+09.05.2026  15:13               597 96c9df19d6fc2c3bd0c3de7dc662dca5408048
+               5 File(s)      1ÿ495ÿ150 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\62
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13            96ÿ757 0912d832c76bdcc2339965ba93961f50514b90
+09.05.2026  14:45               911 c15e6385721d9a711134c6a611508a2fbce5c6
+               2 File(s)         97ÿ668 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\63
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ305 5846357205fe723511d3941cf190801f43c159
+09.05.2026  15:13               248 bb6d40fb9459f03b3668c2035171c18642bce3
+               2 File(s)          1ÿ553 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\64
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               950 413e4ec16215327fc2ac07b1a3ab09b5b6e23e
+09.05.2026  14:45           105ÿ942 cdf4594eded0e1830c2f9b144848bd3a5c818d
+               2 File(s)        106ÿ892 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\65
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               802 48c91908dbede0a5da250bf50a23f044d5b240
+09.05.2026  15:13               989 4b51ca1e5d95e3203d25b235a9629f5ae6ee76
+09.05.2026  15:13               280 a03aa961edbdb25aecc840bab6843f1e7ea6c0
+               3 File(s)          2ÿ071 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\66
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             3ÿ361 7d8209235e050db88b452f2f3dba4f160b33b5
+               1 File(s)          3ÿ361 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\67
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               861 194dd9ca31ddd2015121d9cd797deb8e7101a7
+09.05.2026  15:13               140 81b3372b280e968022f72955fb71ebdc7bf14d
+               2 File(s)          1ÿ001 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\68
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13           129ÿ348 ab58f9ca04ec942f88156bcfc2ae0c92d3d8d3
+09.05.2026  15:13               390 c0782c77e0ffa1db5e0ef29f0ae38947cecd80
+               2 File(s)        129ÿ738 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\69
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             2ÿ407 e727894e0aa55e2a1a41dbdfb245d05060b59f
+               1 File(s)          2ÿ407 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\6c
+
+09.05.2026  15:17    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               255 19ce3d484ba4e3224747bd3abfa0978f7e4f03
+09.05.2026  15:17               205 f36205160f867ad5b941b412ba571f663d6eb4
+               2 File(s)            460 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\6d
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               261 dfc7f905755bd1950afb53829aa2bbf55cfa3b
+               1 File(s)            261 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\6e
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               148 660c0436970dc6260a394fdb02f22a99268d80
+09.05.2026  14:45               140 d29fa4ed33de49ad52d2135e020035e09373d1
+               2 File(s)            288 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\6f
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               890 137ba524ad67890104b620cf2dea291e4d6507
+09.05.2026  15:13               776 4dc417a32bdcfc4c31e0f29a94c4d219eb3a3a
+09.05.2026  14:45                82 5bb4fa8e8bc0ff20632f31c7131ac544b2f853
+               3 File(s)          1ÿ748 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\70
+
+09.05.2026  15:17    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45                47 2b8d0d932a1596e60cf4a081801e39e5e6f3cd
+09.05.2026  15:13             1ÿ298 3e39998d64c5619b62804917e5ff714211c696
+09.05.2026  15:13            74ÿ978 4123740ac81b95369706b69093545bed4c560d
+09.05.2026  15:17               254 5b093dc87f18d21fa17c9ba2da8449d4454944
+09.05.2026  15:13            20ÿ422 af4f845d063e1f38ed26b40645dd497290d1a6
+09.05.2026  15:13                51 cc99df1a4db97629257148453928a265c821ff
+               6 File(s)         97ÿ050 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\71
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                66 43b6a73ab8a901ccf93752cc36f8e9f8191d93
+09.05.2026  15:13               504 b72acc8fe845f3322da118377ff8bae2e738cd
+               2 File(s)            570 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\72
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               184 e3416e302681c23d595a71f75b5eb3e075673d
+               1 File(s)            184 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\73
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               187 6fff31ede29c7b84c49c9876c8d47ab6efe70c
+09.05.2026  15:13                94 82dbc4f9247d26a8df8339bad027ee46f01a8d
+09.05.2026  14:51               192 aa179806729ed1b1bb6de004881745f31a2707
+               3 File(s)            473 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\74
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                56 4bda73d103b79b7e654972b9a42c3c95ff432a
+09.05.2026  15:13               725 6340a761b6ba1b959430e43cd5dc0aeb9de7a0
+09.05.2026  15:13               558 b440fd8b1328650ca0f04b1c0eb5804a5d4f4f
+               3 File(s)          1ÿ339 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\75
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             3ÿ499 f0e6978a515b401266429a5c54d01568d47db5
+               1 File(s)          3ÿ499 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\76
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45            53ÿ600 1bfd73f021741de37ef1b3eae82abba0be9dd0
+09.05.2026  15:13             2ÿ493 346324ad2a78854e1f566ceb0c41605cf3ff95
+09.05.2026  14:45             3ÿ248 611bb77eb237dec0301dea2c35fc12f908b97c
+               3 File(s)         59ÿ341 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\77
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               533 510299100206cb67eb6946fb2883b59364ee5c
+09.05.2026  14:45             3ÿ181 6ce27cf5eac9da88a1301ee9cf4211ca7e6571
+09.05.2026  15:13               145 bd0178bbc95d57719117bec456a086b5a142a0
+09.05.2026  15:13               141 f9ee7565d74c8abf399c9c67138f9f1f35bc59
+               4 File(s)          4ÿ000 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\78
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45                60 32ef6c114bf48983222adc4e9c97473993f394
+09.05.2026  14:45               170 56034776280058ade6dd912f742b1baa191762
+               2 File(s)            230 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\79
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               580 6c283d16598b113f5f1011902feb550448892d
+09.05.2026  15:13           628ÿ008 92b2f430e08577b7b4ae9e9d28c0d306707ca7
+09.05.2026  15:13             9ÿ897 9df4a69cc0d7ac26c3357c8c2bd3f68365d609
+09.05.2026  15:13               431 dc349d3c880cae3c133b17db5bec02f1ccfcfd
+               4 File(s)        638ÿ916 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\7a
+
+07.05.2026  18:59    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\7b
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45            18ÿ260 644b00159e89ae745877a00544fa169f860dd5
+09.05.2026  15:13             3ÿ457 806824370697048284c1726fc4d1b567bfea68
+09.05.2026  14:45               131 b6dfbd2991c994d532e3ebd1567194835abf39
+               3 File(s)         21ÿ848 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\7c
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               409 1d6f39e34d731715f551fa8a6c7520b04cda82
+09.05.2026  15:13                33 34deb5837d8d5e168b54f95f7872b2c50eca13
+               2 File(s)            442 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\7d
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               507 3b876caefe8df0d4856199d0de5ff1ddf45cae
+               1 File(s)            507 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\7e
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               974 c1a7425a8bdaffa9ed912ae8c1c72588158248
+09.05.2026  15:13               203 e57f3087641d65d9b0bf49e70a5a1722ca6821
+               2 File(s)          1ÿ177 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\80
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               662 11c9fcf78c6ebd3c9134b83789bf8356242f5b
+09.05.2026  15:13             1ÿ242 d18716feaad2c0afca754745dda540d47bacec
+               2 File(s)          1ÿ904 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\81
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               352 ffbf9c33b5226ae520f06a40faf48f3446f3ea
+               1 File(s)            352 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\82
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               125 131bf50dec70df1ee0431c7dd68d16ad101b52
+09.05.2026  15:13             3ÿ932 b24d04c820194c888019fa449a1b15e8116aae
+09.05.2026  14:45                46 d16159a2109d306d60ab98f3755cfe9e78e4bf
+               3 File(s)          4ÿ103 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\83
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               788 ca380f0b813963e5493661d3d06eca7b05a64c
+09.05.2026  14:45           103ÿ807 d527fea564f672ad89a57e7e43d75e2ce57171
+               2 File(s)        104ÿ595 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\84
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               465 6c99bd7726530dab53896f0681c8fb92f5c706
+09.05.2026  15:13               299 7631319caa02117365f4602b145dcc41be8774
+               2 File(s)            764 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\85
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               440 b3d24dbf2de5a42052621636cbd9b61a189daa
+               1 File(s)            440 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\88
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ349 25951289b75c4acf65c0f012f7f75452991708
+09.05.2026  15:13               908 42c87d614198bee3757f605d1715ddd704ab58
+09.05.2026  15:13                77 b700109da3d8e04b99d6b1f4812c935925e3ca
+               3 File(s)          2ÿ334 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\89
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45           107ÿ659 8652d48f64669a872f5bd7dec6c80b52f66c6e
+09.05.2026  14:45           103ÿ558 de8f2e4884a287808578183b6ac49d9696291a
+               2 File(s)        211ÿ217 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\8a
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               524 26e9fd19018a5984c1570037f9cbc00a715b21
+09.05.2026  15:13               750 a86b30264363990334a7df0aa0d0c9cc1aecfc
+               2 File(s)          1ÿ274 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\8b
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45                78 20506e9a1326d7666659da5e316cc86f070c47
+09.05.2026  15:13           107ÿ353 740ebd328a4d0343d30cec354d24dac4e40412
+09.05.2026  15:13                83 c3c694efe31f98788452da25b01998965418e6
+09.05.2026  15:13           236ÿ301 cd3209031322b005a713d298797df3f7736e52
+09.05.2026  15:13             4ÿ362 cdbe385d2c0d333bcd62648ca700f13f9d3181
+               5 File(s)        348ÿ177 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\8c
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45                53 c6382e6c9acfcd49f37067944d9b8753e9a9d4
+               1 File(s)             53 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\8e
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               440 47aa8eea126388d0773e7f86f91471eb5e2150
+09.05.2026  15:13                78 c662cd9413e32bd2883f967b66cf9a7521b42e
+09.05.2026  15:13               379 f92cda54c129523aed37c4ea275bee8642526d
+               3 File(s)            897 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\8f
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ089 0773b24274093d7d433070b8c850c7159a8603
+               1 File(s)          1ÿ089 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\90
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             4ÿ170 26a7c868ed51c3dfbf9d66f39c2f2b8411f1ab
+09.05.2026  14:45               112 2af91ef4919c348384c37b3dffb005476fb238
+09.05.2026  14:45           108ÿ607 f31dbdc7f38d7e6953052d8947cf9ee21c75d8
+               3 File(s)        112ÿ889 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\91
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               688 ec9528c7e7ed3b6f5dbea0eeb65b8c355b5f65
+09.05.2026  14:45             3ÿ937 f809fce7c0aadee4c93582788c0b3966341481
+               2 File(s)          4ÿ625 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\92
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               547 02738f8227fbabca816c837547410129324e14
+               1 File(s)            547 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\93
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               553 7da6bcad09365a54997dd879cb05ea3fa8a720
+09.05.2026  15:13               143 863d198004eae1c7b17aef26d829dfca4a314f
+09.05.2026  15:13                78 eb86e6d2dfdc03d08d588137a8b0c703012115
+               3 File(s)            774 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\94
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               235 86447b029c6c9991ca1b62e5a5d57c611a7503
+09.05.2026  15:13               256 abf8c99361398a4d6091f280f9bbfa03448ddf
+09.05.2026  14:45            19ÿ314 cbb630f878df396f38af353f2e280213701e91
+09.05.2026  15:13               119 e146a82221e527be835656549ddfb1b41fd0c9
+               4 File(s)         19ÿ924 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\96
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             2ÿ041 2a10163ad9a8289ef4661070b526f886293dff
+               1 File(s)          2ÿ041 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\97
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             3ÿ352 1ac096b0593fccb5e030b9e4ca1730fd46895c
+09.05.2026  14:45            13ÿ083 27c4e30988a67155151e741404d5cfb9d4dc1a
+               2 File(s)         16ÿ435 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\98
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               713 b96b8160481c72db372708af95ab0f80996e15
+               1 File(s)            713 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\99
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                80 30d6ad1671e19bfddbdeeb9bbcdeab83dc00ba
+09.05.2026  15:13               251 8fc164cf14020e8a9a555d06c36403c50ba689
+               2 File(s)            331 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\9a
+
+09.05.2026  15:17    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13            24ÿ962 0b52088a5afc11d72760f8875fbbd6097889df
+09.05.2026  15:17               201 ba3dbc31c7a0dcd3ae2c478e898742e8e830d4
+09.05.2026  15:13               425 c26f87f1b2c35f94dc35f612f01e8b046b13dc
+               3 File(s)         25ÿ588 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\9c
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               234 40107c0b1c65024650a515169d0cdc13d0b461
+09.05.2026  15:13               107 b64478ae3fbc1f46a2afe065c1e9a18561319f
+09.05.2026  15:13             1ÿ033 e2293231987ad28b0c23ece86147f0faad9676
+               3 File(s)          1ÿ374 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\9d
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               934 001a92b55a9323e827ee90ef353df47f3c2fa0
+09.05.2026  15:13             3ÿ492 9047a9551b28f2d40151171421c6df7504c833
+09.05.2026  15:13           102ÿ482 a61fd9c382e42cca84db750ff2aad141fe40bf
+09.05.2026  15:13               302 cf637cda1ae2b7ed3281c42463da234ae91398
+               4 File(s)        107ÿ210 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\9e
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ207 03365a20d65d16f8eb1d3e224c3d0126aacb68
+09.05.2026  14:45               900 622a11ed5a946cefb32ecb3ab8a54c3a78a114
+09.05.2026  15:13               667 841e7a26e4eb057b24511e7b92d42b257a80e5
+09.05.2026  15:13               660 919658b82e66e3bd39800232da5a469c8d13a8
+               4 File(s)          3ÿ434 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\9f
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45                83 41e1b6eb11b16368576d406bbfcc0214dc3426
+09.05.2026  15:13             3ÿ509 6c7506e04932ffa97835f1d77a95ddbdbedb2d
+09.05.2026  15:13                90 aed7f3d34654c406867f61fe169c2dfa65d18a
+09.05.2026  15:13               353 eaa74f760f8d031a971aa132fb974526d7ec73
+               4 File(s)          4ÿ035 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\a0
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                55 b6408fabbb887f103d99ba9cc6463cad010f72
+09.05.2026  15:17                38 d218e33b577d76957e667a7691169afedc7ddb
+09.05.2026  15:13             2ÿ275 fe4825e7b770476fa00d5540eba141454eeb92
+               3 File(s)          2ÿ368 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\a1
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                77 42c268d464bd4093653baea44ea7abb85e1496
+09.05.2026  15:13            40ÿ613 474d09f7a6c62b6f4cf7664bbff1c1a5c9e647
+09.05.2026  14:45                78 4e220c4177429d4c5f088c10e223f75699840c
+09.05.2026  15:13               540 a959e2c58b69cee72666d0078fff52d38f8ff3
+09.05.2026  15:13             1ÿ744 ff3b33e924e3a4f22822df75b2ee2b046f019f
+               5 File(s)         43ÿ052 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\a2
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ009 ddd99be68fbc1cad87ec5d3ac27eb3e3e9e36c
+               1 File(s)          1ÿ009 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\a3
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               240 32f0bff69ed88326a611860a8e5a8cdb881dc4
+09.05.2026  15:13               807 b45bb8a94a443c578be623b297b278dd816056
+               2 File(s)          1ÿ047 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\a4
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               250 5e37ce6574f0ef35f1aa7fa75e7bb003ab5f74
+09.05.2026  15:13               681 8fd93d5f80658fcd7f05652e01374104b053d1
+09.05.2026  15:13               540 9d1b381235fdaca8b3e8fa212ce5e8354d5c25
+               3 File(s)          1ÿ471 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\a5
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               477 2e5af6fcbcd609c0782472b8372707a097cff6
+09.05.2026  15:13               597 5daa025e3010628ea79d7b44578d3b5bd3a8f8
+09.05.2026  14:45             4ÿ254 745a93413920552960084332d45fc306c803d7
+09.05.2026  15:13               852 ff911cba9cf3ec47333ff29f5e9c01ad49631c
+               4 File(s)          6ÿ180 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\a6
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               173 8d51e0aa7d130dff055534775c353fa9d15264
+               1 File(s)            173 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\a7
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45                96 0c2e70ea8220ec3d0d2090b5e4c3b5ac5211a2
+09.05.2026  15:13               354 759bcf2e3fcd381635df7c31198b2afe37bfac
+09.05.2026  15:13               647 868f178eec838f8a1f0fdc1dc20041b7d45758
+09.05.2026  14:45                82 a1ea23782106ebdc1266395633ba3a06a35001
+               4 File(s)          1ÿ179 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\a8
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               608 7bde12e7635ff47afeb0220150701fd3635f7e
+               1 File(s)            608 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\a9
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               987 26fdc6960599addf757db7d94b4197b9dd3a2b
+09.05.2026  15:13               131 9ee7cf84e91677bc3c6100ac37a60fc8ec8fdb
+09.05.2026  15:13               795 adb0bd134327c37db909970ddcbd83d31e2a38
+09.05.2026  15:13               781 bbb9c3a54716654ed2be91a4749b457dddd2f7
+               4 File(s)          2ÿ694 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\aa
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               785 b10e94c0663e2d26cde6663a6b33ef8c510d6d
+               1 File(s)            785 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\ab
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             3ÿ047 3e971f5afaf551deb62690e12d6e7f1cf2c19d
+09.05.2026  15:13             1ÿ656 eb66b929ae2b0ec908012f4db4141d74895a85
+               2 File(s)          4ÿ703 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\ad
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               171 6d53fc47e816859f1f8bfa3ea298a4996afce9
+09.05.2026  15:13            76ÿ954 bd3927aea228bf1391cab3a42d3111dc64e6c9
+               2 File(s)         77ÿ125 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\ae
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               601 d22e3ee2a7ea66d88509c13b4b846054b6a8d8
+09.05.2026  15:13                78 d6e1d8664d5b8055d29b8ed1f207c5499eb0b9
+09.05.2026  14:45                49 fbcd1c2a259751191f4d9e77ed4beb46f99d71
+               3 File(s)            728 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\af
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45                78 03d87e0c8b7853bee20384f0697f6ba2ae2f45
+09.05.2026  14:45                50 8fc977ff32a68c5f1e1e20d697da9b22d7c9a5
+09.05.2026  15:13               685 b10bbe12d2fc5b9599e0609eb1bd74fb115896
+               3 File(s)            813 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\b0
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               117 16ae110860f170cfae1723ce36c4682080fd9e
+09.05.2026  15:13               712 885ae0b68096ad1206c2541dcaf0929dd9d7fc
+09.05.2026  15:13             7ÿ023 fa8de325eaab35c680bfd6f86956ab16d03df4
+               3 File(s)          7ÿ852 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\b1
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ835 69d962e74ac51ab9a7ba00d8f39175bd9c4528
+09.05.2026  15:13             2ÿ690 aa835d87a41ab90c55cb87c636443a0787ec81
+               2 File(s)          4ÿ525 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\b2
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             3ÿ142 364b58fa9d7c18258efdc9c85fa44ebfd664a9
+09.05.2026  15:13             4ÿ275 9ff5b2d2d132ca5948ab0668d47b912ff012c8
+09.05.2026  15:13               753 dd55965f384ea264518afe772c4ea230bc18e7
+               3 File(s)          8ÿ170 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\b3
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               235 5e3dd60898a4ed6588a8538d5a562a0263cdba
+09.05.2026  15:13             1ÿ292 c89efc852e22f71eabf5dfbc6ac62493425eb6
+09.05.2026  15:13               234 f110b3e345e7fe6ffe12293fe47cc062aecc26
+               3 File(s)          1ÿ761 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\b4
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             3ÿ259 03b7136bc2f91e59e623135ae2f1a14e99cd49
+09.05.2026  15:13             2ÿ602 64e850ce3f08fcb34a618194571afc31dfef21
+09.05.2026  15:13             3ÿ702 71e601ae4ec1aa4833eb07e3c8d04d0222f5ab
+09.05.2026  14:45               213 99deebf2c5fd587e777b4a55735f4195c1f880
+               4 File(s)          9ÿ776 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\b5
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45            97ÿ006 57b132ad076a40fee3b5d69426dbbcd2627183
+09.05.2026  15:13               325 8bfc1ec39d563e9f67b4dc435f137bbe7cbb66
+               2 File(s)         97ÿ331 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\b6
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13            13ÿ525 707461b72d792ae58edb1993fb6e4aef0b6bb0
+09.05.2026  15:13               520 bb44b2cafffb25fbe958e9082d7df9738d4741
+               2 File(s)         14ÿ045 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\b7
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               652 4ceeef3b3b3e0fca193aee39b43e6077428794
+09.05.2026  14:45               167 6d48ea98d61a48df3ff98d6d4254f4462fb6ee
+               2 File(s)            819 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\b8
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                77 8dc2e10a9208a3263548001eee9ef8c6c68ca3
+09.05.2026  15:13               722 90983b3daefd4cb31b3cccbeebe3d1fdd83457
+09.05.2026  15:13               541 c6e74867a446fa92a5c111abf08a4c3c0ae5df
+               3 File(s)          1ÿ340 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\b9
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               274 014f316c0ce158a0a002b5c19a7bb216187bb9
+09.05.2026  15:13             7ÿ457 6cb1583bf310f9c7a8428002e6a234020b9bbf
+               2 File(s)          7ÿ731 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\ba
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               192 3994e481a05fc35accd43e3ead05cbe5370c2d
+09.05.2026  15:13             4ÿ622 b04ff85b38eb50f942fb7ba84dd46dfe1f00c6
+               2 File(s)          4ÿ814 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\bb
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45                45 133efb761e8a888148455e0829edcb6dc53039
+09.05.2026  15:13               541 26644e8cb9f992db5eb18874b57aad0c13b784
+09.05.2026  14:45               565 45b6f703affc78b0c3827749abb25ec09f42dd
+09.05.2026  15:13            96ÿ437 a374c6224b2670215c94c65c1a4f9ae5424357
+               4 File(s)         97ÿ588 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\bc
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               237 88fe820c87a217d27eb010281fe39b71163835
+               1 File(s)            237 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\bd
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               319 4418379951b36d96cdaa98d7e2dd4973c56989
+09.05.2026  14:45             4ÿ303 8dd7ca63aedab8a0843744aa78a5fea4c3863e
+09.05.2026  15:13               180 b7545ed85007d1a79598992ee48ea9b6c27b33
+09.05.2026  15:13               152 e89a8b86dfd03fc2f71470c3f8120d74aed7f5
+               4 File(s)          4ÿ954 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\be
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               534 be4bf0b91e4baccde0cfc2ae907c1c1517c417
+               1 File(s)            534 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\bf
+
+09.05.2026  14:51    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:51               134 52b77627e71a61b0098b04864d1da48517e868
+               1 File(s)            134 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\c0
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45                75 aa1abdc9a0787b7da420d91a7eb7c06f92abae
+09.05.2026  15:13                47 e2e41f7219daa1a88918fb82e0df7fa8088ae7
+               2 File(s)            122 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\c2
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               671 314d53d097cd36006110afd82fe3d09701a7c5
+09.05.2026  15:13               115 782e592e541a8ec8bd07038e997e63a16beb70
+               2 File(s)            786 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\c3
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               546 bea29a399d3fe511be176af78dac4e41ad8db2
+               1 File(s)            546 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\c4
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45                60 185d69e2ac1d4f9619540038b110e5aed31cef
+09.05.2026  15:13               251 864b9a05229d393985bbabe3354dbda0be3f98
+               2 File(s)            311 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\c5
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               150 6650645caed3bb47cf7a39d18696ec47140ca3
+               1 File(s)            150 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\c6
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               361 af4e8cabbf5abb1a98382dbd828105b83f5d35
+               1 File(s)            361 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\c7
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               569 6db0faa81f6d683c4a18a212f804fb70cf8143
+09.05.2026  14:45               336 fd1209ee23cbf433c08eb3500ec77fa2a928b6
+               2 File(s)            905 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\c8
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45             5ÿ165 11ae65dd59c83a320664aa94bc3c1d365436ce
+09.05.2026  15:13               568 7beab52cb4e7980d8f301836f3d628513dd73f
+               2 File(s)          5ÿ733 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\c9
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               587 19b3f2ee9f599b1cee1ebcda3cb56e95dd7888
+09.05.2026  15:13               564 ac1a86cabc78a39434badc2515b948dfca4a20
+09.05.2026  15:13                78 d75eee6cb330131a3ad200d8a1fc24c7bdedc9
+               3 File(s)          1ÿ229 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\ca
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ626 2d26bf8444221e2c97eca099209bf4b085e6d8
+09.05.2026  15:13               529 7cc91ac95735b0c5817eb01a60b712f817a44c
+09.05.2026  14:45               590 87ba8ed64af5b78374b892e73e10cb7bfcbc03
+               3 File(s)          2ÿ745 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\cc
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               131 75d624984f02837cf02d6e0bb4c5367c79de6c
+09.05.2026  15:13               233 920c59ff4f47447fc6a5b96c70e455d4b19558
+09.05.2026  15:13             1ÿ355 cb75de5b204bdd6f084eda262c2e3835a163a3
+               3 File(s)          1ÿ719 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\cd
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               330 1aec46792f4bdb4fd06aeabf1fd93c8b3f11ea
+09.05.2026  15:13           104ÿ122 46108800ab396a72a647d4b8949b172035c744
+               2 File(s)        104ÿ452 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\ce
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               491 c454a2a1986932acb22141113ec0c852a59f9b
+               1 File(s)            491 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\cf
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               498 b106bc604cd475c1f8247dd6185b3198fc40a3
+09.05.2026  15:13             6ÿ575 f11e7c6d8cadab0994ac9037a5a2d17d9e35b9
+09.05.2026  15:13               219 f532b0728b147616186e47bc81d6240b420abf
+               3 File(s)          7ÿ292 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\d0
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                63 2d3d3468299fc2f4a7b4a396f13122afc33eae
+09.05.2026  15:13               534 5b4a295b59985aa1ff605462640102d688ca1b
+               2 File(s)            597 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\d2
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ360 1a91fcf3d4fb63515c79b3a47f0433c3ca1e4b
+09.05.2026  14:45               172 c72df331ccd62752a8af8b1bdca175be9c152c
+09.05.2026  15:13               841 ffcc48f2b6d5f658d25c38235fcceb8869cf97
+               3 File(s)          2ÿ373 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\d4
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               401 2b30194f11e9dfad0d8b59843962b5aaca9d9b
+09.05.2026  14:45                77 a5a024b8595d9f0460030a64aff4c9e622f7fa
+               2 File(s)            478 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\d5
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               561 1fcb6cedb809967ece5cc568f658245fe95f58
+09.05.2026  15:13             6ÿ204 c6ac9efb83f48805cef6190e7023d963145221
+               2 File(s)          6ÿ765 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\d6
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45                53 0a3e0b10b2ecf8857123c9072228d1304f8950
+09.05.2026  14:45               845 263a9e6e773779c0368a76c0c47cb572ab85c9
+09.05.2026  15:13               602 60eab81f790f462517d0b3308202946fbdee28
+09.05.2026  15:13               137 925c5a6f2f9377badb1c3ba3721608127a198e
+               4 File(s)          1ÿ637 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\d7
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             5ÿ718 0f9cdc0a0253c6e99f05742fe6fe76f2b3ee6e
+09.05.2026  15:13             5ÿ351 8b6408874d54cf04b2a3a4609eede6d60b8c0b
+09.05.2026  14:45                77 e4404968168ae6d83d3f9eba6445ffe7702b6a
+               3 File(s)         11ÿ146 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\d8
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               259 36429282ec237096e01352d611d241e1b1edeb
+09.05.2026  14:45               893 3b8c93eec094aadf21b2f0d5ac7e158bbb0f41
+09.05.2026  15:13               358 a4d7ad2115d92dae280d26ae80bc9fd6e0566b
+09.05.2026  14:45             4ÿ461 d907df99267c255b3807de0c376e41eefbb547
+               4 File(s)          5ÿ971 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\d9
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             4ÿ166 7764edaa6e2ade24be5bcaa1c0e06064cb18b9
+09.05.2026  14:45               556 995554a74a552fbf246bf6659c3e62bf08562f
+               2 File(s)          4ÿ722 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\db
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               101 0c3688233b9cfb51bcc82701b3e7547f18d037
+               1 File(s)            101 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\dc
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ163 1fb8e364af5e7d423a31370663a96f3e35242d
+09.05.2026  15:13               938 7460a0ff98df46af4034f903828b70771f5d5e
+               2 File(s)          2ÿ101 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\dd
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             3ÿ342 42883a6f743927f799f46b9f63bddc12446d31
+               1 File(s)          3ÿ342 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\de
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               268 0144e1cf687f841302c0938826d282fa05539c
+09.05.2026  14:45               914 a79ca975ceb0eb992be7f295e12a8be3de2792
+09.05.2026  15:13           947ÿ799 acd5e9763a645cc110fa67a69c1d12014677af
+               3 File(s)        948ÿ981 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\df
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             3ÿ093 880ac99f7dc35f2779e7994d09c5f9f578e26c
+09.05.2026  14:45                51 c3d7eef7fd51ebb4b410a63ebca2cf9b033c62
+               2 File(s)          3ÿ144 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\e0
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               725 167531d6d9ad9e7a822e5b6f5acfa06a96ee72
+               1 File(s)            725 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\e1
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45           107ÿ382 1f624df8394469c443fcf4dba76a97e44153df
+09.05.2026  15:13             8ÿ488 d26d86b02ff05639c248291053a733f836fc0d
+               2 File(s)        115ÿ870 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\e2
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               515 f00b8340a0019a67bb0a10abdc06ff33040e51
+               1 File(s)            515 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\e3
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               875 2df8548820fdf608b39331be07a8519a1b6c46
+09.05.2026  15:13               541 6572f3eeee6b7caa4c0a8b9fc7b3de44e379af
+09.05.2026  15:13               845 a3c1a375eabd53be009b1ff41021e968723af4
+               3 File(s)          2ÿ261 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\e4
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               288 4bea719b62641679a802096e8142787970175e
+09.05.2026  14:45               254 abe10cf945c1b18305a08a0db0cca04a2e56ee
+               2 File(s)            542 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\e5
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13            51ÿ527 03976a6b05616fd9016ffa78f108a1f7bcb7cf
+09.05.2026  15:13               345 e993a5de06ea52e861918ba92144650a85de8f
+               2 File(s)         51ÿ872 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\e6
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                60 77fa316c6257a7d0dd1a726800a522e828c604
+               1 File(s)             60 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\e7
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               205 634c7f5d1b13d7e9bdb355767185296d98af86
+09.05.2026  14:45                78 9bccd33634ba1dadb8db92a59b805f1cc49c66
+09.05.2026  15:13                91 abcfacae3a152b466f33d53f0b00a482d007d2
+               3 File(s)            374 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\e8
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                93 a624b097bec9e07583299cd1325548b0cc2199
+               1 File(s)             93 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\e9
+
+07.05.2026  18:59    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\ea
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               518 574edca70c45641753c6392fcd675971788cf7
+09.05.2026  15:13               704 bcd9f129d26a378f497f413c27604d32d4147d
+09.05.2026  15:13               500 ec8681f1b412534556620f2b0139045e3bfb51
+               3 File(s)          1ÿ722 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\eb
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45                78 c36c614869eae58c57d657564c51d1720778ba
+               1 File(s)             78 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\ec
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               154 242eadc85e4b0ef546c8fdc771f7e9d7d2f081
+09.05.2026  15:13             1ÿ030 8892fa11313d34c668e6f0ca9f80fdd5b53aec
+09.05.2026  15:13             5ÿ156 d86e2319e39e1628f695cae45b619d3cffc9f8
+               3 File(s)          6ÿ340 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\ed
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               825 1b7cf27e97e136918e87ad7bb33baf169f0171
+09.05.2026  15:13             2ÿ764 b07cc2f9e4451eec15804566778faa9a9644ea
+09.05.2026  15:13             3ÿ712 c24fd6e14090696ed6e30031e2ab346733e898
+               3 File(s)          7ÿ301 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\ee
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               190 00ff5d04818a8aa22b703b801e694492bd7ed5
+09.05.2026  15:13            11ÿ929 66114636c1e3f1b455457ad9e91b0eeeb2d360
+               2 File(s)         12ÿ119 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\ef
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45            67ÿ592 0d746d0e665843084575f06f7aaf046d0eed35
+09.05.2026  14:45                78 af34e071b2ee7c4ce824a57b3f69cd0c3875c3
+               2 File(s)         67ÿ670 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\f1
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45               309 637a642a55aefe47d57f1ccf153736bb0908fd
+09.05.2026  15:13               829 a01bae03ef6d9af171f6a2010cddd51ffd4450
+09.05.2026  15:13             1ÿ335 b0ad0267aa71bc29b00e869276ab7bd51b4f32
+09.05.2026  15:13               469 e7b7cb24b977f259028c77ebd321d13422d760
+               4 File(s)          2ÿ942 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\f2
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                78 60293a6143e7424920622bffc28f03401dbc29
+09.05.2026  15:13             1ÿ267 8a14b7f6c5c139653e6edaf1ab8b5843bce6e7
+               2 File(s)          1ÿ345 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\f3
+
+09.05.2026  14:45    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  14:45             1ÿ843 c5a3386491553a3df2ebfa83dc55b8e724bec1
+               1 File(s)          1ÿ843 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\f5
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13             1ÿ184 8dbeb4eca3ad3118fbd5e2a7f6241d5b5aceaa
+09.05.2026  15:13                57 9d70aa9ca827224617e01d390c9c10b4e81cbc
+               2 File(s)          1ÿ241 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\f6
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               232 2e966dca9b14ad5b8c0cbe4c8b469cc578f71d
+09.05.2026  15:13               189 4d4a755d9a1bf2cf408cd8a1d12e627fa60f01
+               2 File(s)            421 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\f7
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               759 64109b7a21c1527933d95bbfc2d5442834df40
+09.05.2026  15:13               122 643754ae2720ba5fa505732d5ec7cb367475b7
+09.05.2026  15:13           103ÿ201 6cb1f07ec364598de0490d1daa06c5670fea89
+09.05.2026  14:45               929 ab52fb96af6ad9717b2fae292933f16284ce93
+09.05.2026  14:45           104ÿ368 f3b3967f019c46f79e4e62aecf994a0432eddc
+               5 File(s)        209ÿ379 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\f8
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               512 a2c7d50e0885305ed608bd9608ca9907c20fc8
+               1 File(s)            512 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\fa
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               234 3610388071ca059cdcacb191f6eece7cebc6fc
+09.05.2026  14:45             1ÿ154 9cb998478b1c142ec558d371872c4aff75295f
+09.05.2026  15:13               673 9d284849af11b0e125430416f35a5738ce52dd
+09.05.2026  14:45            10ÿ006 bf807dba62138924ec0495bebe0886a76af995
+09.05.2026  15:13               649 ea82c97935a688bd22c08fe61cfabc220e0769
+09.05.2026  15:13             2ÿ724 f49ad4e6d45f9e32a409dfe653279f93062670
+               6 File(s)         15ÿ440 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\fb
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13                53 6b7d05a6a90509ed2a23ee686790e9c0e01b86
+09.05.2026  15:13               928 9bdf26141f651bb115c2d40c148b7ad2dc09da
+09.05.2026  15:13               455 aa23005cdf3cb9b1e8dada338ec2854df6e9fa
+09.05.2026  15:13             4ÿ903 ad5a9b1ce3c61a5254784c82e2abbecf393e79
+09.05.2026  15:13             1ÿ303 d5c81cae66fa6401f871ac7fb02e96fdb9c213
+               5 File(s)          7ÿ642 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\fd
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               958 0498110b0bbe12fc59ef44324104462dae32a7
+09.05.2026  14:45                78 1e6b60d310ca02f8c37ad6597660d38a4d750b
+09.05.2026  15:13               508 4b5784309a698955743127f623503ed5e2b6ff
+09.05.2026  14:45               100 5e08a984d761d74ee43affa577b1b8a50e076d
+09.05.2026  15:13            79ÿ619 824216d0a9b934e5939dd3b17aca825cd5a486
+               5 File(s)         81ÿ263 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\fe
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               421 253fb42a2136c6bd90fbbaa01df90d074d5479
+               1 File(s)            421 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\ff
+
+09.05.2026  15:13    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+09.05.2026  15:13               114 e35b4390997ea1487104d6377630f9c8b5a197
+               1 File(s)            114 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\info
+
+07.05.2026  18:25    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\objects\pack
+
+07.05.2026  18:25    <DIR>          .
+09.05.2026  15:17    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\refs
+
+09.05.2026  14:52    <DIR>          .
+09.05.2026  15:17    <DIR>          heads
+09.05.2026  14:52    <DIR>          remotes
+07.05.2026  18:25    <DIR>          tags
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\refs\heads
+
+09.05.2026  15:17    <DIR>          .
+09.05.2026  14:52    <DIR>          ..
+09.05.2026  15:17                41 main
+               1 File(s)             41 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\refs\remotes
+
+09.05.2026  14:52    <DIR>          .
+09.05.2026  14:52    <DIR>          ..
+09.05.2026  15:17    <DIR>          origin
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\refs\remotes\origin
+
+09.05.2026  15:17    <DIR>          .
+09.05.2026  14:52    <DIR>          ..
+09.05.2026  14:55                30 HEAD
+09.05.2026  15:17                41 main
+               2 File(s)             71 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\.git\refs\tags
+
+07.05.2026  18:25    <DIR>          .
+09.05.2026  14:52    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:18    <DIR>          ..
+09.05.2026  15:09    <DIR>          .bin
+09.05.2026  15:09             9ÿ517 .package-lock.json
+09.05.2026  15:10    <DIR>          .vite
+09.05.2026  15:09    <DIR>          @esbuild
+09.05.2026  15:09    <DIR>          @oxc-project
+09.05.2026  15:09    <DIR>          @rolldown
+09.05.2026  15:09    <DIR>          @rollup
+09.05.2026  15:09    <DIR>          @types
+09.05.2026  15:09    <DIR>          esbuild
+09.05.2026  15:09    <DIR>          postcss
+09.05.2026  15:09    <DIR>          rollup
+09.05.2026  15:09    <DIR>          typescript
+09.05.2026  15:09    <DIR>          vite
+               1 File(s)          9ÿ517 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\.bin
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09               387 esbuild
+09.05.2026  15:09               324 esbuild.cmd
+09.05.2026  15:09               801 esbuild.ps1
+09.05.2026  15:09               393 rollup
+09.05.2026  15:09               327 rollup.cmd
+09.05.2026  15:09               813 rollup.ps1
+09.05.2026  15:09               385 tsc
+09.05.2026  15:09               323 tsc.cmd
+09.05.2026  15:09               797 tsc.ps1
+09.05.2026  15:09               395 tsserver
+09.05.2026  15:09               328 tsserver.cmd
+09.05.2026  15:09               817 tsserver.ps1
+09.05.2026  15:09               381 vite
+09.05.2026  15:09               321 vite.cmd
+09.05.2026  15:09               789 vite.ps1
+              15 File(s)          7ÿ581 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\.vite
+
+09.05.2026  15:10    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:10    <DIR>          deps
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\.vite\deps
+
+09.05.2026  15:10    <DIR>          .
+09.05.2026  15:10    <DIR>          ..
+09.05.2026  15:10                23 package.json
+09.05.2026  15:10               146 _metadata.json
+               2 File(s)            169 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\@esbuild
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09    <DIR>          win32-x64
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\@esbuild\win32-x64
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09         9ÿ913ÿ856 esbuild.exe
+09.05.2026  15:09               374 package.json
+09.05.2026  15:09               143 README.md
+               3 File(s)      9ÿ914ÿ373 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\@oxc-project
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\@rolldown
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\@rollup
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09    <DIR>          rollup-win32-x64-gnu
+09.05.2026  15:09    <DIR>          rollup-win32-x64-msvc
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\@rollup\rollup-win32-x64-gnu
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09               451 package.json
+09.05.2026  15:09                92 README.md
+09.05.2026  15:09         1ÿ978ÿ368 rollup.win32-x64-gnu.node
+               3 File(s)      1ÿ978ÿ911 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\@rollup\rollup-win32-x64-msvc
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09               454 package.json
+09.05.2026  15:09                94 README.md
+09.05.2026  15:09         2ÿ546ÿ176 rollup.win32-x64-msvc.node
+               3 File(s)      2ÿ546ÿ724 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\@types
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09    <DIR>          estree
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\@types\estree
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09             4ÿ801 flow.d.ts
+09.05.2026  15:09            18ÿ944 index.d.ts
+09.05.2026  15:09             1ÿ141 LICENSE
+09.05.2026  15:09               829 package.json
+09.05.2026  15:09               458 README.md
+               5 File(s)         26ÿ173 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\esbuild
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09    <DIR>          bin
+09.05.2026  15:09            10ÿ943 install.js
+09.05.2026  15:09    <DIR>          lib
+09.05.2026  15:09             1ÿ069 LICENSE.md
+09.05.2026  15:09             1ÿ340 package.json
+09.05.2026  15:09               175 README.md
+               4 File(s)         13ÿ527 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\esbuild\bin
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09             9ÿ200 esbuild
+               1 File(s)          9ÿ200 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\esbuild\lib
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09            22ÿ991 main.d.ts
+09.05.2026  15:09            87ÿ654 main.js
+               2 File(s)        110ÿ645 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\postcss
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09    <DIR>          lib
+09.05.2026  15:09             1ÿ095 LICENSE
+09.05.2026  15:09    <DIR>          node_modules
+09.05.2026  15:09             2ÿ497 package.json
+09.05.2026  15:09             1ÿ156 README.md
+               3 File(s)          4ÿ748 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\postcss\lib
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09             3ÿ356 at-rule.d.ts
+09.05.2026  15:09               471 at-rule.js
+09.05.2026  15:09             1ÿ680 comment.d.ts
+09.05.2026  15:09               203 comment.js
+09.05.2026  15:09            14ÿ025 container.d.ts
+09.05.2026  15:09            10ÿ647 container.js
+09.05.2026  15:09             6ÿ447 css-syntax-error.d.ts
+09.05.2026  15:09             3ÿ402 css-syntax-error.js
+09.05.2026  15:09             3ÿ833 declaration.d.ts
+09.05.2026  15:09               495 declaration.js
+09.05.2026  15:09             1ÿ884 document.d.ts
+09.05.2026  15:09               654 document.js
+09.05.2026  15:09               160 fromJSON.d.ts
+09.05.2026  15:09             1ÿ506 fromJSON.js
+09.05.2026  15:09             5ÿ126 input.d.ts
+09.05.2026  15:09             6ÿ798 input.js
+09.05.2026  15:09             4ÿ939 lazy-result.d.ts
+09.05.2026  15:09            13ÿ869 lazy-result.js
+09.05.2026  15:09             1ÿ424 list.d.ts
+09.05.2026  15:09             1ÿ227 list.js
+09.05.2026  15:09            10ÿ031 map-generator.js
+09.05.2026  15:09             1ÿ503 no-work-result.d.ts
+09.05.2026  15:09             2ÿ619 no-work-result.js
+09.05.2026  15:09            14ÿ694 node.d.ts
+09.05.2026  15:09            10ÿ719 node.js
+09.05.2026  15:09               133 parse.d.ts
+09.05.2026  15:09             1ÿ147 parse.js
+09.05.2026  15:09            14ÿ846 parser.js
+09.05.2026  15:09             1ÿ046 postcss.d.mts
+09.05.2026  15:09            11ÿ542 postcss.d.ts
+09.05.2026  15:09             2ÿ898 postcss.js
+09.05.2026  15:09               980 postcss.mjs
+09.05.2026  15:09             1ÿ757 previous-map.d.ts
+09.05.2026  15:09             4ÿ508 previous-map.js
+09.05.2026  15:09             3ÿ345 processor.d.ts
+09.05.2026  15:09             1ÿ739 processor.js
+09.05.2026  15:09             4ÿ346 result.d.ts
+09.05.2026  15:09               738 result.js
+09.05.2026  15:09             2ÿ253 root.d.ts
+09.05.2026  15:09             1ÿ239 root.js
+09.05.2026  15:09             2ÿ879 rule.d.ts
+09.05.2026  15:09               569 rule.js
+09.05.2026  15:09             1ÿ360 stringifier.d.ts
+09.05.2026  15:09             9ÿ026 stringifier.js
+09.05.2026  15:09               163 stringify.d.ts
+09.05.2026  15:09               213 stringify.js
+09.05.2026  15:09                91 symbols.js
+09.05.2026  15:09             1ÿ399 terminal-highlight.js
+09.05.2026  15:09             6ÿ700 tokenize.js
+09.05.2026  15:09               256 warn-once.js
+09.05.2026  15:09             2ÿ924 warning.d.ts
+09.05.2026  15:09               739 warning.js
+              52 File(s)        200ÿ548 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\postcss\node_modules
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09    <DIR>          .bin
+09.05.2026  15:09    <DIR>          nanoid
+09.05.2026  15:09    <DIR>          picocolors
+09.05.2026  15:09    <DIR>          source-map-js
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\postcss\node_modules\.bin
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09               391 nanoid
+09.05.2026  15:09               326 nanoid.cmd
+09.05.2026  15:09               809 nanoid.ps1
+               3 File(s)          1ÿ526 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\postcss\node_modules\nanoid
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09    <DIR>          .claude
+09.05.2026  15:09    <DIR>          async
+09.05.2026  15:09    <DIR>          bin
+09.05.2026  15:09             2ÿ834 index.browser.cjs
+09.05.2026  15:09             1ÿ064 index.browser.js
+09.05.2026  15:09             3ÿ430 index.cjs
+09.05.2026  15:09             2ÿ252 index.d.cts
+09.05.2026  15:09             2ÿ252 index.d.ts
+09.05.2026  15:09             1ÿ397 index.js
+09.05.2026  15:09             1ÿ095 LICENSE
+09.05.2026  15:09               169 nanoid.js
+09.05.2026  15:09    <DIR>          non-secure
+09.05.2026  15:09             2ÿ283 package.json
+09.05.2026  15:09             1ÿ552 README.md
+09.05.2026  15:09    <DIR>          url-alphabet
+              10 File(s)         18ÿ328 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\postcss\node_modules\nanoid\.claude
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09               440 settings.local.json
+               1 File(s)            440 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\postcss\node_modules\nanoid\async
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09             2ÿ692 index.browser.cjs
+09.05.2026  15:09               984 index.browser.js
+09.05.2026  15:09             2ÿ870 index.cjs
+09.05.2026  15:09             1ÿ505 index.d.ts
+09.05.2026  15:09               982 index.js
+09.05.2026  15:09               820 index.native.js
+09.05.2026  15:09               233 package.json
+               7 File(s)         10ÿ086 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\postcss\node_modules\nanoid\bin
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09             1ÿ129 nanoid.cjs
+               1 File(s)          1ÿ129 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\postcss\node_modules\nanoid\non-secure
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09             1ÿ114 index.cjs
+09.05.2026  15:09               983 index.d.ts
+09.05.2026  15:09               497 index.js
+09.05.2026  15:09                99 package.json
+               4 File(s)          2ÿ693 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\postcss\node_modules\nanoid\url-alphabet
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09               280 index.cjs
+09.05.2026  15:09               110 index.js
+09.05.2026  15:09                99 package.json
+               3 File(s)            489 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\postcss\node_modules\picocolors
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09               787 LICENSE
+09.05.2026  15:09               552 package.json
+09.05.2026  15:09               598 picocolors.browser.js
+09.05.2026  15:09               138 picocolors.d.ts
+09.05.2026  15:09             2ÿ663 picocolors.js
+09.05.2026  15:09               622 README.md
+09.05.2026  15:09             1ÿ013 types.d.ts
+               7 File(s)          6ÿ373 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\postcss\node_modules\source-map-js
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09    <DIR>          lib
+09.05.2026  15:09             1ÿ526 LICENSE
+09.05.2026  15:09             2ÿ548 package.json
+09.05.2026  15:09            26ÿ040 README.md
+09.05.2026  15:09             3ÿ408 source-map.d.ts
+09.05.2026  15:09               405 source-map.js
+               5 File(s)         33ÿ927 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\postcss\node_modules\source-map-js\lib
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09             3ÿ197 array-set.js
+09.05.2026  15:09             4ÿ714 base64-vlq.js
+09.05.2026  15:09             1ÿ540 base64.js
+09.05.2026  15:09             4ÿ249 binary-search.js
+09.05.2026  15:09             2ÿ339 mapping-list.js
+09.05.2026  15:09             4ÿ068 quick-sort.js
+09.05.2026  15:09                40 source-map-consumer.d.ts
+09.05.2026  15:09            41ÿ580 source-map-consumer.js
+09.05.2026  15:09                41 source-map-generator.d.ts
+09.05.2026  15:09            14ÿ933 source-map-generator.js
+09.05.2026  15:09                33 source-node.d.ts
+09.05.2026  15:09            13ÿ808 source-node.js
+09.05.2026  15:09            15ÿ403 util.js
+              13 File(s)        105ÿ945 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\rollup
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09    <DIR>          dist
+09.05.2026  15:09            35ÿ231 LICENSE.md
+09.05.2026  15:09            12ÿ426 package.json
+09.05.2026  15:09             9ÿ999 README.md
+               3 File(s)         57ÿ656 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\rollup\dist
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09    <DIR>          bin
+09.05.2026  15:09    <DIR>          es
+09.05.2026  15:09               171 getLogFilter.d.ts
+09.05.2026  15:09             2ÿ188 getLogFilter.js
+09.05.2026  15:09               471 loadConfigFile.d.ts
+09.05.2026  15:09               705 loadConfigFile.js
+09.05.2026  15:09             4ÿ787 native.js
+09.05.2026  15:09               134 parseAst.d.ts
+09.05.2026  15:09               506 parseAst.js
+09.05.2026  15:09            36ÿ145 rollup.d.ts
+09.05.2026  15:09             4ÿ666 rollup.js
+09.05.2026  15:09    <DIR>          shared
+               9 File(s)         49ÿ773 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\rollup\dist\bin
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09            82ÿ269 rollup
+               1 File(s)         82ÿ269 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\rollup\dist\es
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09             2ÿ046 getLogFilter.js
+09.05.2026  15:09                17 package.json
+09.05.2026  15:09               293 parseAst.js
+09.05.2026  15:09               441 rollup.js
+09.05.2026  15:09    <DIR>          shared
+               4 File(s)          2ÿ797 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\rollup\dist\es\shared
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09           945ÿ590 node-entry.js
+09.05.2026  15:09            86ÿ150 parseAst.js
+09.05.2026  15:09           264ÿ026 watch.js
+               3 File(s)      1ÿ295ÿ766 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\rollup\dist\shared
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09               884 fsevents-importer.js
+09.05.2026  15:09           254ÿ170 index.js
+09.05.2026  15:09            22ÿ927 loadConfigFile.js
+09.05.2026  15:09            95ÿ256 parseAst.js
+09.05.2026  15:09           944ÿ796 rollup.js
+09.05.2026  15:09            18ÿ478 watch-cli.js
+09.05.2026  15:09            10ÿ556 watch.js
+               7 File(s)      1ÿ347ÿ067 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\typescript
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09    <DIR>          bin
+09.05.2026  15:09    <DIR>          lib
+09.05.2026  15:09             9ÿ197 LICENSE.txt
+09.05.2026  15:09             3ÿ620 package.json
+09.05.2026  15:09             2ÿ842 README.md
+09.05.2026  15:09             2ÿ656 SECURITY.md
+09.05.2026  15:09            37ÿ824 ThirdPartyNoticeText.txt
+               5 File(s)         56ÿ139 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\typescript\bin
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09                45 tsc
+09.05.2026  15:09                50 tsserver
+               2 File(s)             95 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\typescript\lib
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09    <DIR>          cs
+09.05.2026  15:09    <DIR>          de
+09.05.2026  15:09    <DIR>          es
+09.05.2026  15:09    <DIR>          fr
+09.05.2026  15:09    <DIR>          it
+09.05.2026  15:09    <DIR>          ja
+09.05.2026  15:09    <DIR>          ko
+09.05.2026  15:09               992 lib.d.ts
+09.05.2026  15:09            13ÿ192 lib.decorators.d.ts
+09.05.2026  15:09             1ÿ326 lib.decorators.legacy.d.ts
+09.05.2026  15:09             1ÿ887 lib.dom.asynciterable.d.ts
+09.05.2026  15:09         1ÿ874ÿ901 lib.dom.d.ts
+09.05.2026  15:09            29ÿ802 lib.dom.iterable.d.ts
+09.05.2026  15:09             5ÿ229 lib.es2015.collection.d.ts
+09.05.2026  15:09            22ÿ866 lib.es2015.core.d.ts
+09.05.2026  15:09             1ÿ241 lib.es2015.d.ts
+09.05.2026  15:09             2ÿ557 lib.es2015.generator.d.ts
+09.05.2026  15:09            18ÿ200 lib.es2015.iterable.d.ts
+09.05.2026  15:09             3ÿ200 lib.es2015.promise.d.ts
+09.05.2026  15:09             5ÿ251 lib.es2015.proxy.d.ts
+09.05.2026  15:09             6ÿ493 lib.es2015.reflect.d.ts
+09.05.2026  15:09             1ÿ649 lib.es2015.symbol.d.ts
+09.05.2026  15:09            11ÿ010 lib.es2015.symbol.wellknown.d.ts
+09.05.2026  15:09             5ÿ204 lib.es2016.array.include.d.ts
+09.05.2026  15:09               965 lib.es2016.d.ts
+09.05.2026  15:09             1ÿ032 lib.es2016.full.d.ts
+09.05.2026  15:09             1ÿ484 lib.es2016.intl.d.ts
+09.05.2026  15:09               915 lib.es2017.arraybuffer.d.ts
+09.05.2026  15:09             1ÿ162 lib.es2017.d.ts
+09.05.2026  15:09             1ÿ916 lib.es2017.date.d.ts
+09.05.2026  15:09             1ÿ032 lib.es2017.full.d.ts
+09.05.2026  15:09             1ÿ449 lib.es2017.intl.d.ts
+09.05.2026  15:09             2ÿ473 lib.es2017.object.d.ts
+09.05.2026  15:09             7ÿ209 lib.es2017.sharedmemory.d.ts
+09.05.2026  15:09             2ÿ378 lib.es2017.string.d.ts
+09.05.2026  15:09             1ÿ542 lib.es2017.typedarrays.d.ts
+09.05.2026  15:09             2ÿ692 lib.es2018.asyncgenerator.d.ts
+09.05.2026  15:09             2ÿ257 lib.es2018.asynciterable.d.ts
+09.05.2026  15:09             1ÿ088 lib.es2018.d.ts
+09.05.2026  15:09             1ÿ074 lib.es2018.full.d.ts
+09.05.2026  15:09             3ÿ021 lib.es2018.intl.d.ts
+09.05.2026  15:09             1ÿ353 lib.es2018.promise.d.ts
+09.05.2026  15:09             1ÿ232 lib.es2018.regexp.d.ts
+09.05.2026  15:09             3ÿ163 lib.es2019.array.d.ts
+09.05.2026  15:09             1ÿ071 lib.es2019.d.ts
+09.05.2026  15:09             1ÿ074 lib.es2019.full.d.ts
+09.05.2026  15:09               958 lib.es2019.intl.d.ts
+09.05.2026  15:09             1ÿ473 lib.es2019.object.d.ts
+09.05.2026  15:09             1ÿ528 lib.es2019.string.d.ts
+09.05.2026  15:09             1ÿ006 lib.es2019.symbol.d.ts
+09.05.2026  15:09            38ÿ185 lib.es2020.bigint.d.ts
+09.05.2026  15:09             1ÿ201 lib.es2020.d.ts
+09.05.2026  15:09             2ÿ956 lib.es2020.date.d.ts
+09.05.2026  15:09             1ÿ074 lib.es2020.full.d.ts
+09.05.2026  15:09            22ÿ438 lib.es2020.intl.d.ts
+09.05.2026  15:09             1ÿ587 lib.es2020.number.d.ts
+09.05.2026  15:09             1ÿ803 lib.es2020.promise.d.ts
+09.05.2026  15:09             5ÿ128 lib.es2020.sharedmemory.d.ts
+09.05.2026  15:09             2ÿ556 lib.es2020.string.d.ts
+09.05.2026  15:09             1ÿ606 lib.es2020.symbol.wellknown.d.ts
+09.05.2026  15:09             1ÿ036 lib.es2021.d.ts
+09.05.2026  15:09             1ÿ074 lib.es2021.full.d.ts
+09.05.2026  15:09             8ÿ245 lib.es2021.intl.d.ts
+09.05.2026  15:09             2ÿ262 lib.es2021.promise.d.ts
+09.05.2026  15:09             1ÿ592 lib.es2021.string.d.ts
+09.05.2026  15:09             3ÿ171 lib.es2021.weakref.d.ts
+09.05.2026  15:09             4ÿ676 lib.es2022.array.d.ts
+09.05.2026  15:09             1ÿ108 lib.es2022.d.ts
+09.05.2026  15:09             2ÿ379 lib.es2022.error.d.ts
+09.05.2026  15:09             1ÿ074 lib.es2022.full.d.ts
+09.05.2026  15:09             7ÿ692 lib.es2022.intl.d.ts
+09.05.2026  15:09             1ÿ085 lib.es2022.object.d.ts
+09.05.2026  15:09             1ÿ331 lib.es2022.regexp.d.ts
+09.05.2026  15:09             1ÿ155 lib.es2022.string.d.ts
+09.05.2026  15:09            40ÿ236 lib.es2023.array.d.ts
+09.05.2026  15:09               900 lib.es2023.collection.d.ts
+09.05.2026  15:09               999 lib.es2023.d.ts
+09.05.2026  15:09             1ÿ074 lib.es2023.full.d.ts
+09.05.2026  15:09             2ÿ645 lib.es2023.intl.d.ts
+09.05.2026  15:09             2ÿ637 lib.es2024.arraybuffer.d.ts
+09.05.2026  15:09             1ÿ224 lib.es2024.collection.d.ts
+09.05.2026  15:09             1ÿ166 lib.es2024.d.ts
+09.05.2026  15:09             1ÿ074 lib.es2024.full.d.ts
+09.05.2026  15:09             1ÿ259 lib.es2024.object.d.ts
+09.05.2026  15:09             1ÿ389 lib.es2024.promise.d.ts
+09.05.2026  15:09             1ÿ073 lib.es2024.regexp.d.ts
+09.05.2026  15:09             3ÿ077 lib.es2024.sharedmemory.d.ts
+09.05.2026  15:09             1ÿ194 lib.es2024.string.d.ts
+09.05.2026  15:09           218ÿ439 lib.es5.d.ts
+09.05.2026  15:09             1ÿ032 lib.es6.d.ts
+09.05.2026  15:09             1ÿ791 lib.esnext.array.d.ts
+09.05.2026  15:09             3ÿ878 lib.esnext.collection.d.ts
+09.05.2026  15:09             1ÿ282 lib.esnext.d.ts
+09.05.2026  15:09             1ÿ070 lib.esnext.decorators.d.ts
+09.05.2026  15:09             6ÿ806 lib.esnext.disposable.d.ts
+09.05.2026  15:09             1ÿ029 lib.esnext.error.d.ts
+09.05.2026  15:09            20ÿ528 lib.esnext.float16.d.ts
+09.05.2026  15:09             1ÿ074 lib.esnext.full.d.ts
+09.05.2026  15:09               893 lib.esnext.intl.d.ts
+09.05.2026  15:09             8ÿ676 lib.esnext.iterator.d.ts
+09.05.2026  15:09             1ÿ658 lib.esnext.promise.d.ts
+09.05.2026  15:09             1ÿ067 lib.esnext.sharedmemory.d.ts
+09.05.2026  15:09             9ÿ451 lib.scripthost.d.ts
+09.05.2026  15:09             1ÿ887 lib.webworker.asynciterable.d.ts
+09.05.2026  15:09           609ÿ557 lib.webworker.d.ts
+09.05.2026  15:09             1ÿ041 lib.webworker.importscripts.d.ts
+09.05.2026  15:09            22ÿ768 lib.webworker.iterable.d.ts
+09.05.2026  15:09    <DIR>          pl
+09.05.2026  15:09    <DIR>          pt-br
+09.05.2026  15:09    <DIR>          ru
+09.05.2026  15:09    <DIR>          tr
+09.05.2026  15:09               267 tsc.js
+09.05.2026  15:09               272 tsserver.js
+09.05.2026  15:09               865 tsserverlibrary.d.ts
+09.05.2026  15:09             1ÿ012 tsserverlibrary.js
+09.05.2026  15:09           588ÿ085 typescript.d.ts
+09.05.2026  15:09         9ÿ112ÿ572 typescript.js
+09.05.2026  15:09            16ÿ788 typesMap.json
+09.05.2026  15:09               280 typingsInstaller.js
+09.05.2026  15:09             2ÿ313 watchGuard.js
+09.05.2026  15:09    <DIR>          zh-cn
+09.05.2026  15:09    <DIR>          zh-tw
+09.05.2026  15:09         6ÿ213ÿ092 _tsc.js
+09.05.2026  15:09            27ÿ888 _tsserver.js
+09.05.2026  15:09            10ÿ363 _typingsInstaller.js
+             112 File(s)     19ÿ115ÿ632 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\typescript\lib\cs
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09           320ÿ453 diagnosticMessages.generated.json
+               1 File(s)        320ÿ453 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\typescript\lib\de
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09           344ÿ426 diagnosticMessages.generated.json
+               1 File(s)        344ÿ426 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\typescript\lib\es
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09           340ÿ054 diagnosticMessages.generated.json
+               1 File(s)        340ÿ054 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\typescript\lib\fr
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09           346ÿ016 diagnosticMessages.generated.json
+               1 File(s)        346ÿ016 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\typescript\lib\it
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09           339ÿ409 diagnosticMessages.generated.json
+               1 File(s)        339ÿ409 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\typescript\lib\ja
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09           381ÿ398 diagnosticMessages.generated.json
+               1 File(s)        381ÿ398 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\typescript\lib\ko
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09           346ÿ139 diagnosticMessages.generated.json
+               1 File(s)        346ÿ139 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\typescript\lib\pl
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09           342ÿ111 diagnosticMessages.generated.json
+               1 File(s)        342ÿ111 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\typescript\lib\pt-br
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09           330ÿ482 diagnosticMessages.generated.json
+               1 File(s)        330ÿ482 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\typescript\lib\ru
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09           443ÿ587 diagnosticMessages.generated.json
+               1 File(s)        443ÿ587 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\typescript\lib\tr
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09           330ÿ684 diagnosticMessages.generated.json
+               1 File(s)        330ÿ684 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\typescript\lib\zh-cn
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09           295ÿ909 diagnosticMessages.generated.json
+               1 File(s)        295ÿ909 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\typescript\lib\zh-tw
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09           292ÿ532 diagnosticMessages.generated.json
+               1 File(s)        292ÿ532 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\vite
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09    <DIR>          bin
+09.05.2026  15:09             4ÿ743 client.d.ts
+09.05.2026  15:09    <DIR>          dist
+09.05.2026  15:09             1ÿ624 index.cjs
+09.05.2026  15:09               209 index.d.cts
+09.05.2026  15:09           162ÿ419 LICENSE.md
+09.05.2026  15:09             4ÿ893 package.json
+09.05.2026  15:09             1ÿ152 README.md
+09.05.2026  15:09    <DIR>          types
+               6 File(s)        175ÿ040 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\vite\bin
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09             2ÿ691 openChrome.applescript
+09.05.2026  15:09             1ÿ670 vite.js
+               2 File(s)          4ÿ361 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\vite\dist
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09    <DIR>          client
+09.05.2026  15:09    <DIR>          node
+09.05.2026  15:09    <DIR>          node-cjs
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\vite\dist\client
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09            23ÿ781 client.mjs
+09.05.2026  15:09               643 env.mjs
+               2 File(s)         24ÿ424 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\vite\dist\node
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09    <DIR>          chunks
+09.05.2026  15:09            27ÿ894 cli.js
+09.05.2026  15:09             2ÿ934 constants.js
+09.05.2026  15:09           126ÿ077 index.d.ts
+09.05.2026  15:09             7ÿ527 index.js
+09.05.2026  15:09             2ÿ714 runtime.d.ts
+09.05.2026  15:09            44ÿ997 runtime.js
+09.05.2026  15:09             9ÿ708 types.d-aGj9QkWt.d.ts
+               7 File(s)        221ÿ851 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\vite\dist\node\chunks
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09            23ÿ212 dep-BB45zftN.js
+09.05.2026  15:09         2ÿ086ÿ035 dep-BK3b2jBa.js
+09.05.2026  15:09           331ÿ672 dep-D-7KCb9p.js
+09.05.2026  15:09           232ÿ635 dep-Dnp7gl8U.js
+09.05.2026  15:09            13ÿ409 dep-IQS-Za7F.js
+               5 File(s)      2ÿ686ÿ963 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\vite\dist\node-cjs
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09           160ÿ413 publicUtils.cjs
+               1 File(s)        160ÿ413 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\node_modules\vite\types
+
+09.05.2026  15:09    <DIR>          .
+09.05.2026  15:09    <DIR>          ..
+09.05.2026  15:09             1ÿ143 customEvent.d.ts
+09.05.2026  15:09             1ÿ101 hmrPayload.d.ts
+09.05.2026  15:09             1ÿ003 hot.d.ts
+09.05.2026  15:09               249 import-meta.d.ts
+09.05.2026  15:09             1ÿ909 importGlob.d.ts
+09.05.2026  15:09               510 importMeta.d.ts
+09.05.2026  15:09               193 metadata.d.ts
+09.05.2026  15:09               109 package.json
+               8 File(s)          6ÿ217 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\public
+
+07.05.2026  18:58    <DIR>          .
+09.05.2026  15:18    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\src
+
+09.05.2026  15:16    <DIR>          .
+09.05.2026  15:18    <DIR>          ..
+07.05.2026  18:58    <DIR>          assets
+07.05.2026  19:02    <DIR>          core
+09.05.2026  14:38               443 main.ts
+07.05.2026  19:02    <DIR>          state
+09.05.2026  14:58             1ÿ534 style.css
+07.05.2026  19:02    <DIR>          types
+07.05.2026  19:02    <DIR>          ui
+               2 File(s)          1ÿ977 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\src\assets
+
+07.05.2026  18:58    <DIR>          .
+09.05.2026  15:16    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\src\core
+
+07.05.2026  19:02    <DIR>          .
+09.05.2026  15:16    <DIR>          ..
+07.05.2026  19:02             1ÿ764 GameEngine.ts
+               1 File(s)          1ÿ764 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\src\state
+
+07.05.2026  19:02    <DIR>          .
+09.05.2026  15:16    <DIR>          ..
+09.05.2026  14:55             1ÿ407 StateManager.ts
+               1 File(s)          1ÿ407 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\src\types
+
+07.05.2026  19:02    <DIR>          .
+09.05.2026  15:16    <DIR>          ..
+09.05.2026  14:54               245 index.ts
+               1 File(s)            245 bytes
+
+ Directory of C:\Users\adrian\OneDrive\Documents\.www\ade-zip-game\src\ui
+
+07.05.2026  19:02    <DIR>          .
+09.05.2026  15:16    <DIR>          ..
+09.05.2026  14:56             2ÿ827 UIController.ts
+               1 File(s)          2ÿ827 bytes
+
+     Total Files Listed:
+             905 File(s)     61ÿ204ÿ088 bytes
+             916 Dir(s)  64ÿ939ÿ503ÿ616 bytes free
