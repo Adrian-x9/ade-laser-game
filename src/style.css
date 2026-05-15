@@ -206,16 +206,19 @@ body {
   to { filter: brightness(1.3); box-shadow: 0 0 16px currentColor; }
 }
 
-/* Klasy kolorów dla peryferii */
-.em-r, .rec-r { background-color: var(--laser-r); color: var(--laser-r); }
-.em-g, .rec-g { background-color: var(--laser-g); color: var(--laser-g); }
-.em-b, .rec-b { background-color: var(--laser-b); color: var(--laser-b); }
-.rec-c { background-color: var(--laser-c); color: var(--laser-c); }
-.rec-m { background-color: var(--laser-m); color: var(--laser-m); }
-.rec-y { background-color: var(--laser-y); color: var(--laser-y); }
-.rec-w { background-color: var(--laser-w); color: var(--laser-w); }
+/* Klasy kolorów dla peryferii - naprawiony kontrast i cienie */
+.em-r, .rec-r { background-color: var(--laser-r); box-shadow: 0 0 12px var(--laser-r); color: #fff !important; }
+.em-g, .rec-g { background-color: var(--laser-g); box-shadow: 0 0 12px var(--laser-g); color: #fff !important; }
+.em-b, .rec-b { background-color: var(--laser-b); box-shadow: 0 0 12px var(--laser-b); color: #fff !important; }
+.rec-c { background-color: var(--laser-c); box-shadow: 0 0 12px var(--laser-c); color: #111 !important; }
+.rec-m { background-color: var(--laser-m); box-shadow: 0 0 12px var(--laser-m); color: #fff !important; }
+.rec-y { background-color: var(--laser-y); box-shadow: 0 0 12px var(--laser-y); color: #111 !important; }
+.rec-w { background-color: var(--laser-w); box-shadow: 0 0 12px var(--laser-w); color: #111 !important; }
 
-.receiver { color: #fff !important; } /* Wymuszenie białej czcionki litery celu */
+@keyframes receiverGlow {
+  from { filter: brightness(1); transform: translateY(-50%) scale(1.15); }
+  to { filter: brightness(1.35); transform: translateY(-50%) scale(1.22); }
+}
 
 /* --- SIATKA KAFELKÓW --- */
 .game-grid {
@@ -650,20 +653,3 @@ body.dark-mode .icon-mirror_2::after {
   padding: 0 4px;
 }
 
-/* --- ŁATKA: Maksymalna czytelność przycisku Poziom/Start --- */
-#btn-start {
-  font-weight: 900 !important;
-  letter-spacing: 0.5px;
-}
-
-/* W trybie jasnym: ostra czerń z delikatną, jasną poświatą */
-body:not(.dark-mode) #btn-start {
-  color: #000000 !important;
-  text-shadow: 0px 1px 2px rgba(255, 255, 255, 0.6) !important;
-}
-
-/* W trybie ciemnym: czysta biel z twardym, ciemnym cieniem */
-body.dark-mode #btn-start {
-  color: #ffffff !important;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5) !important;
-}

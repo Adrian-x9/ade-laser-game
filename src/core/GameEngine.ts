@@ -54,9 +54,13 @@ export class GameEngine {
       return;
     }
 
-    // --- STRZAŁ TESTOWY / WERYFIKACJA ---
-    if (action === 'TEST_FIRE' && currentState.status === 'PLAYING') {
-      this.verifyOpticalCircuit();
+    // --- STRZAŁ TESTOWY / WERYFIKACJA / KONTYNUACJA ---
+    if (action === 'TEST_FIRE') {
+      if (currentState.status === 'PLAYING') {
+        this.verifyOpticalCircuit();
+      } else if (currentState.status === 'WIN' || currentState.status === 'GAME_OVER') {
+        this.startGame();
+      }
       return;
     }
 
@@ -199,7 +203,34 @@ export class GameEngine {
 
     this.stateManager.updateState({ grid: updatedGrid });
     this.recalculateRays();
+    
+    // NOWOŚĆ: Aktywne Zagrożenia. Sprawdzamy, czy laser po obrocie nie zdetonował miny!
+    this.checkInstantHazards();
+    
     this.uiController.render(this.stateManager.getState());
+  }
+
+  // Funkcja sprawdzająca natychmiastowe zwarcia podczas rekonfiguracji w locie
+  private checkInstantHazards(): void {
+    const state = this.stateManager.getState();
+    if (state.status !== 'PLAYING') return;
+    
+    let hitMine = false;
+    state.grid.forEach((cell, idx) => {
+      if (cell.type === 'MINE') {
+        const r = Math.floor(idx / state.cols);
+        const c = idx % state.cols;
+        // Jeśli jakikolwiek promień przecina pole z miną po obrocie lustra
+        const rayEnters = state.rays.some(ray => 
+          Math.floor(ray.x1) === c && Math.floor(ray.y1) === r
+        );
+        if (rayEnters) hitMine = true;
+      }
+    });
+
+    if (hitMine) {
+      this.punishPlayer("Wiązka laserowa omiotła minę optyczną podczas rekonfiguracji!");
+    }
   }
 
   // --- SILNIK RAYCASTINGU (Śledzenie promieni w locie) ---
@@ -445,12 +476,11 @@ export class GameEngine {
     this.uiController.render(this.stateManager.getState());
   }
 
-  // --- GENERATOR ZAGADEK OPTYCZNYCH ---
+  // --- GENERATOR ZAGADEK OPTYCZNYCH (Wersja Ostateczna) ---
   private generateOpticalPuzzle(level: number, cols: number, rows: number) {
     const totalCells = cols * rows;
     const grid: GridElement[] = Array(totalCells).fill(null).map(() => ({ type: 'EMPTY', rotation: 0 }));
 
-    // 1. Definiujemy stałe emitery na lewym brzegu strzelające w prawo
     const emitters: Emitter[] = [
       { index: 0, color: 'R', direction: 'RIGHT' },
       { index: Math.floor(rows / 2), color: 'G', direction: 'RIGHT' }
@@ -461,77 +491,94 @@ export class GameEngine {
 
     const receivers: Receiver[] = [];
     const usedCells = new Set<number>();
+    
+    // 1. Zabezpieczenie: Ekskluzywne pasy ruchu dla każdego koloru
+    const claimedRows = new Map<number, LaserColor>();
+    emitters.forEach(em => claimedRows.set(em.index, em.color));
 
-    // 2. WYPALANIE GWARANTOWANEJ ŚCIEŻKI DLA KAŻDEGO EMITERA
+    // 2. Wypalanie ścieżek
     emitters.forEach(em => {
       let r = em.index;
       let c = 0;
 
       while (c < cols) {
-        usedCells.add(r * cols + c);
+        // 2. Zabezpieczenie: Sprawdzamy czy nie stoimy na cudzej ścieżce
+        const wasAlreadyUsed = usedCells.has(r * cols + c);
+        usedCells.add(r * cols + c); // Zaznaczamy przejście poziome
 
-        // Szansa na stworzenie pionowego objazdu (detour), jeśli mamy miejsce
-        // Warunek: nie jesteśmy w ostatniej kolumnie i rzut losowy się powiedzie
-        if (c < cols - 1 && Math.random() < 0.40) {
-          // Szukamy wolnego wiersza docelowego dla objazdu
+        if (c < cols - 1 && Math.random() < 0.40 && !wasAlreadyUsed) {
           const availableRows: number[] = [];
+          
           for (let nextR = 0; nextR < rows; nextR++) {
-            if (nextR !== r && !usedCells.has(nextR * cols + c) && !usedCells.has(nextR * cols + (c + 1))) {
-              availableRows.push(nextR);
+            if (nextR !== r) {
+              // Sprawdzamy, czy wiersz docelowy jest wolny lub należy do nas
+              if (!claimedRows.has(nextR) || claimedRows.get(nextR) === em.color) {
+                
+                // 3. Zabezpieczenie: Czy pionowy szyb nie przetnie istniejącego LUSTRA?
+                let shaftClear = true;
+                const minR = Math.min(r, nextR);
+                const maxR = Math.max(r, nextR);
+                
+                for (let stepR = minR; stepR <= maxR; stepR++) {
+                  if (grid[stepR * cols + c].type !== 'EMPTY') {
+                    shaftClear = false;
+                    break;
+                  }
+                }
+                
+                if (shaftClear) {
+                  availableRows.push(nextR);
+                }
+              }
             }
           }
 
           if (availableRows.length > 0) {
             const targetR = availableRows[Math.floor(Math.random() * availableRows.length)];
+            claimedRows.set(targetR, em.color); // Rezerwujemy nowy pas
+            
             const goesDown = targetR > r;
 
-            // Ustawiamy parę luster tworzącą idealny uskok ścieżki
-            // Pierwsze lustro skręca promień w pionie
-            grid[r * cols + c] = { 
-              type: 'MIRROR_1', 
-              rotation: goesDown ? 90 : 0 // Ukryta poprawna rotacja (\ dla w dół, / dla w górę)
-            };
+            // Stawiamy lustra
+            grid[r * cols + c] = { type: 'MIRROR_1', rotation: goesDown ? 90 : 0 };
+            grid[targetR * cols + c] = { type: goesDown ? 'MIRROR_2' : 'MIRROR_1', rotation: goesDown ? 0 : 0 };
             
-            // Zaznaczamy pionowe przejście jako zajęte
+            // Oznaczamy pionowy szyb jako zajęty (by nie stawiać tam min)
             const minR = Math.min(r, targetR);
             const maxR = Math.max(r, targetR);
             for (let stepR = minR; stepR <= maxR; stepR++) {
               usedCells.add(stepR * cols + c);
             }
 
-            // Drugie lustro w wierszu docelowym wraca promień na kierunek RIGHT
-            grid[targetR * cols + c] = { 
-              type: goesDown ? 'MIRROR_2' : 'MIRROR_1', 
-              rotation: goesDown ? 0 : 0 // Właściwe odbicie w prawo
-            };
-
-            r = targetR; // Przeskakujemy do nowego wiersza
+            r = targetR; // Przeskok promienia
           }
         }
-        c++; // Krok w prawo
+        c++; 
       }
 
-      // Umieszczamy odbiornik dokładnie tam, gdzie ścieżka dotarła do prawego brzegu
-      // Sprawdzamy, czy w tym miejscu nie ma już innego odbiornika (mieszanie barw)
-      const existingRec = receivers.find(rec => rec.index === r);
-      if (existingRec) {
-        const blended = this.blendColors([existingRec.targetColor, em.color]);
-        if (blended) existingRec.targetColor = blended;
-      } else {
-        receivers.push({ index: r, targetColor: em.color, isSatisfied: false });
-      }
+      // Bezpiecznie dodajemy odbiornik (nikt inny tu nie wjedzie)
+      receivers.push({ index: r, targetColor: em.color, isSatisfied: false });
     });
 
-    // 3. WYPEŁNIANIE TŁA ZMYŁKAMI (Szum optyczny i Miny) ORAZ MIESZANIE ROTACJI
+    // 3. Wypełnianie tła (Szum optyczny, Miny i Pryzmaty)
     grid.forEach((cell, idx) => {
-      // Jeśli pole nie jest częścią żadnej ścieżki, wrzucamy losowy element jako pułapkę
-      if (!usedCells.has(idx) && Math.random() < 0.35) {
-        if (level >= 4 && Math.random() < 0.40) cell.type = 'MINE';
-        else cell.type = Math.random() < 0.5 ? 'MIRROR_1' : 'MIRROR_2';
+      if (!usedCells.has(idx)) {
+        // Skalowanie trudności - gęstość zmyłek rośnie z każdym poziomem
+        // Od 20% na starcie aż do morderczych 75% na wyższych poziomach
+        const noiseChance = Math.min(0.20 + (level * 0.08), 0.75); 
+
+        if (Math.random() < noiseChance) {
+          if (level >= 5 && Math.random() < 0.25) {
+            cell.type = 'SPLITTER'; // Dodajemy Rozszczepiacze od 5 poziomu!
+          } else if (level >= 4 && Math.random() < 0.35) {
+            cell.type = 'MINE';     // Dodajemy Miny od 4 poziomu!
+          } else {
+            cell.type = Math.random() < 0.5 ? 'MIRROR_1' : 'MIRROR_2';
+          }
+        }
       }
 
-      // Na koniec bezwzględnie SCRAMBLUJEMY (losujemy) rotacje luster, 
-      // by gracz musiał sam odkryć właściwe ułożenie
+      // Losowe obracanie wszystkich wygenerowanych obiektów optycznych
       if (cell.type === 'MIRROR_1' || cell.type === 'MIRROR_2' || cell.type === 'SPLITTER') {
         const rotations = [0, 90, 180, 270];
         cell.rotation = rotations[Math.floor(Math.random() * rotations.length)];

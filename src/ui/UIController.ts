@@ -249,7 +249,7 @@ export class UIController {
       line.setAttribute('y2', ray.y2.toString());
       line.setAttribute('stroke', colorHex);
       line.setAttribute('stroke-width', '0.08');
-      line.setAttribute('stroke-linecap', 'round');
+      line.setAttribute('stroke-linecap', 'butt');
       line.style.filter = `drop-shadow(0 0 0.03 ${colorHex})`;
       
       svg.appendChild(line);
@@ -359,6 +359,12 @@ export class UIController {
     // Modale
     const infoEl = document.getElementById('dynamic-info-wrapper');
     if (infoEl) {
+      const isStandalone = typeof window !== 'undefined' && 
+        (window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone === true);
+      const isPL = state.lang === 'PL';
+      const isDE = state.lang === 'DE';
+      const btnInstall = isPL ? "Zainstaluj Aplikację" : isDE ? "App installieren" : "Install Application";
+
       infoEl.innerHTML = `
         <div class="info-content">
           <h2>${t.infoTitle}</h2>
@@ -367,6 +373,7 @@ export class UIController {
             <li>🔢 ${t.instVars}</li>
             <li>❤️ <b>Roguelike:</b> One beam hitting a mine or a wrong receiver will cost a life!</li>
           </ul>
+          ${!isStandalone ? `<button id="btn-modal-install" class="btn-primary" style="width:100%; margin-bottom:12px;" onclick="window.__beamsInstall && window.__beamsInstall()">📲 ${btnInstall}</button>` : ''}
           <div class="author-info"><span class="author-name">ade BEAMS by Adrian Ulbrych</span><span class="author-meta">v1.0.0 © 2026-05-14</span></div>
         </div>
       `;

@@ -28,19 +28,18 @@ document.addEventListener('DOMContentLoaded', () => {
 // ---------------------------------------------------------------------------
 function getInstallTexts(platform: 'ios' | 'android'): { msg: string; btn: string } {
   const code = (navigator.languages?.[0] || navigator.language || 'en').slice(0, 2).toLowerCase();
-
   const copy: Record<string, Record<'ios' | 'android', { msg: string; btn: string }>> = {
     pl: {
       ios:     { msg: 'Dodaj do ekranu głównego: kliknij ⬆️ Udostępnij → Dodaj', btn: '' },
-      android: { msg: 'Zainstaluj Patches na swoim telefonie', btn: 'Zainstaluj' } // <-- ZMIANA
+      android: { msg: 'Zainstaluj ade BEAMS na swoim telefonie', btn: 'Zainstaluj' }
     },
     de: {
       ios:     { msg: 'Zum Startbildschirm: ⬆️ Teilen → Zum Home-Bildschirm', btn: '' },
-      android: { msg: 'Patches auf deinem Gerät installieren', btn: 'Installieren' } // <-- ZMIANA
+      android: { msg: 'ade BEAMS auf deinem Gerät installieren', btn: 'Installieren' }
     },
     en: {
       ios:     { msg: 'Add to Home Screen: tap ⬆️ Share → Add to Home Screen', btn: '' },
-      android: { msg: 'Install Patches on your device', btn: 'Install' } // <-- ZMIANA
+      android: { msg: 'Install ade BEAMS on your device', btn: 'Install' }
     }
   };
 
@@ -124,15 +123,12 @@ function showIOSBanner(banner: HTMLElement, dismiss: () => void): void {
 // ===========================================================================
 declare global {
   interface Window {
-    __patchesInstall?: () => void;
-    __patchesResetBanner?: () => void;
-    // Zostawiamy stare aliasy w razie nawyków w konsoli
-    __zipInstall?: () => void; 
-    __zipResetBanner?: () => void;
+    __beamsInstall?: () => void;
+    __beamsResetBanner?: () => void;
   }
 }
 
-window.__patchesInstall = async () => {
+window.__beamsInstall = async () => {
   // 1. Jeśli przeglądarka (Android/PC Chrome) udostępniła natywny obiekt instalacji
   if (deferredInstallPrompt) {
     deferredInstallPrompt.prompt();
@@ -162,13 +158,13 @@ window.__patchesInstall = async () => {
   }
 };
 
-window.__patchesResetBanner = () => {
+window.__beamsResetBanner = () => {
   localStorage.removeItem('install_dismissed');
   const oldBanner = document.getElementById('install-banner');
   if (oldBanner) oldBanner.remove();
   initInstallBanner();
 };
 
-// Podpięcie starych aliasów
-window.__zipInstall = window.__patchesInstall;
-window.__zipResetBanner = window.__patchesResetBanner;
+// Opcjonalne podpięcie starych aliasów (w razie starych nawyków w konsoli)
+window.__zipInstall = window.__beamsInstall;
+window.__zipResetBanner = window.__beamsResetBanner;
