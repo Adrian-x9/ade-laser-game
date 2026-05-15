@@ -3,8 +3,6 @@ import { StateManager } from './state/StateManager';
 import { UIController } from './ui/UIController';
 import { GameEngine } from './core/GameEngine';
 
-// Nasłuchujemy beforeinstallprompt PRZED DOMContentLoaded –
-// przeglądarka może go wyemitować bardzo wcześnie
 let deferredInstallPrompt: any = null;
 window.addEventListener('beforeinstallprompt', (e: Event) => {
   e.preventDefault();
@@ -15,31 +13,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const stateManager = new StateManager();
   const uiController = new UIController('app');
   const game = new GameEngine(stateManager, uiController);
+  uiController.setGameEngine(game);
   game.boot();
 
   initInstallBanner();
 });
 
-// ---------------------------------------------------------------------------
-// PWA INSTALL BANNER
-// Pokazuje się jednorazowo użytkownikom którzy jeszcze nie zainstalowali apki.
-// Android: przycisk "Zainstaluj" uruchamia natywny prompt Chrome.
-// iOS:     wskazówka "Udostępnij → Dodaj do ekranu głównego".
-// ---------------------------------------------------------------------------
 function getInstallTexts(platform: 'ios' | 'android'): { msg: string; btn: string } {
   const code = (navigator.languages?.[0] || navigator.language || 'en').slice(0, 2).toLowerCase();
   const copy: Record<string, Record<'ios' | 'android', { msg: string; btn: string }>> = {
     pl: {
       ios:     { msg: 'Dodaj do ekranu głównego: kliknij ⬆️ Udostępnij → Dodaj', btn: '' },
-      android: { msg: 'Zainstaluj ade BEAMS na swoim telefonie', btn: 'Zainstaluj' }
+      android: { msg: 'Zainstaluj BEAMS na swoim telefonie', btn: 'Zainstaluj' }
     },
     de: {
       ios:     { msg: 'Zum Startbildschirm: ⬆️ Teilen → Zum Home-Bildschirm', btn: '' },
-      android: { msg: 'ade BEAMS auf deinem Gerät installieren', btn: 'Installieren' }
+      android: { msg: 'BEAMS auf deinem Gerät installieren', btn: 'Installieren' }
     },
     en: {
       ios:     { msg: 'Add to Home Screen: tap ⬆️ Share → Add to Home Screen', btn: '' },
-      android: { msg: 'Install ade BEAMS on your device', btn: 'Install' }
+      android: { msg: 'Install BEAMS on your device', btn: 'Install' }
     }
   };
 
@@ -47,19 +40,16 @@ function getInstallTexts(platform: 'ios' | 'android'): { msg: string; btn: strin
 }
 
 function initInstallBanner(): void {
-  // Nie pokazujemy jeśli apka już działa w trybie standalone (zainstalowana)
   const isStandalone =
     window.matchMedia('(display-mode: standalone)').matches ||
     (window.navigator as any).standalone === true;
 
   if (isStandalone) return;
 
-  // Nie pokazujemy jeśli użytkownik już odrzucił banner
   if (localStorage.getItem('install_dismissed')) return;
 
   const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
 
-  // Tworzymy element bannera i dodajemy do body (poza #app)
   const banner = document.createElement('div');
   banner.id = 'install-banner';
   banner.className = 'install-banner hidden';
@@ -70,18 +60,15 @@ function initInstallBanner(): void {
     localStorage.setItem('install_dismissed', '1');
   };
 
-  // --- Android (Chrome): czekamy na deferredInstallPrompt ---
   if (deferredInstallPrompt) {
     showAndroidBanner(banner, deferredInstallPrompt, dismiss);
   } else if (!isIOS) {
-    // Chrome może jeszcze nie wyemitować eventu – czekamy chwilę
     window.addEventListener('beforeinstallprompt', (e: Event) => {
       e.preventDefault();
       showAndroidBanner(banner, e, dismiss);
     }, { once: true });
   }
 
-  // --- iOS Safari: ręczne instrukcje ---
   if (isIOS) {
     showIOSBanner(banner, dismiss);
   }
@@ -93,7 +80,7 @@ function showAndroidBanner(banner: HTMLElement, promptEvent: any, dismiss: () =>
     <span class="install-banner-icon">📲</span>
     <span class="install-banner-msg">${msg}</span>
     <button class="install-banner-btn" id="install-action-btn">${btn}</button>
-    <button class="install-banner-dismiss" id="install-dismiss-btn" aria-label="Zamknij">✕</button>
+    <button class="install-banner-dismiss" id="install-dismiss-btn" aria-label="Close">✕</button>
   `;
   banner.classList.remove('hidden');
 
@@ -111,16 +98,13 @@ function showIOSBanner(banner: HTMLElement, dismiss: () => void): void {
   banner.innerHTML = `
     <span class="install-banner-icon">📲</span>
     <span class="install-banner-msg">${msg}</span>
-    <button class="install-banner-dismiss" id="install-dismiss-btn" aria-label="Zamknij">✕</button>
+    <button class="install-banner-dismiss" id="install-dismiss-btn" aria-label="Close">✕</button>
   `;
   banner.classList.remove('hidden');
 
   document.getElementById('install-dismiss-btn')?.addEventListener('click', dismiss);
 }
 
-// ===========================================================================
-// GLOBALNE FUNKCJE PWA (Wywoływane z modalu Info oraz konsoli)
-// ===========================================================================
 declare global {
   interface Window {
     __beamsInstall?: () => void;
@@ -129,18 +113,15 @@ declare global {
 }
 
 window.__beamsInstall = async () => {
-  // 1. Jeśli przeglądarka (Android/PC Chrome) udostępniła natywny obiekt instalacji
   if (deferredInstallPrompt) {
     deferredInstallPrompt.prompt();
     const { outcome } = await deferredInstallPrompt.userChoice;
     if (outcome === 'accepted') {
       deferredInstallPrompt = null;
-      // Ukrywamy przycisk po udanej instalacji
       const installBtn = document.getElementById('btn-modal-install');
       if (installBtn) installBtn.style.display = 'none';
     }
   } else {
-    // 2. Obsługa fallbacku (iOS Safari blokuje monity, a na PC apka może być już zainstalowana)
     const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
     const isPL = (document.getElementById('btn-lang')?.textContent || '').includes('PL');
 

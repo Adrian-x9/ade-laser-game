@@ -64,6 +64,19 @@ export class GameEngine {
       return;
     }
 
+    // --- RIVAL MODE ---
+    if (action.startsWith('RIVAL_SUBMIT:')) {
+      const rivalCode = action.substring('RIVAL_SUBMIT:'.length).trim();
+      this.decodeAndApplyRivalCode(rivalCode);
+      return;
+    }
+
+    if (action === 'RIVAL_END') {
+      this.stateManager.updateState({ rivalScore: null, rivalLevel: null });
+      this.uiController.render(currentState);
+      return;
+    }
+
     // --- CHEATS & DEV ---
     if (action === 'DEV_NEXT_LEVEL' && currentState.status === 'PLAYING') {
       if (this.timerInterval) clearInterval(this.timerInterval);
@@ -80,9 +93,9 @@ export class GameEngine {
     if (action === 'DEV_RESET_BEST') {
       if (this.timerInterval) clearInterval(this.timerInterval);
       this.stateManager.factoryReset();
-      if (typeof window !== 'undefined' && window.__beamsResetBanner) {
-  window.__beamsResetBanner();
-}
+      if (typeof window !== 'undefined' && (window as any).__beamsResetBanner) {
+        (window as any).__beamsResetBanner();
+      }
       this.startGame();
       return;
     }
@@ -113,7 +126,6 @@ export class GameEngine {
           savesLeft: parsed.savesLeft ?? currentState.savesLeft,
           loadsLeft: currentState.loadsLeft - 1
         });
-        // Przeliczamy promienie dla wczytanego stanu
         this.recalculateRays();
         this.uiController.render(this.stateManager.getState());
       } catch (e) {
@@ -129,7 +141,6 @@ export class GameEngine {
         if (this.timerInterval) clearInterval(this.timerInterval);
         this.stateManager.updateState({ status: 'GAME_OVER', lives: 0 });
       } else {
-        // Resetujemy obroty elementów do zera
         const resGrid = currentState.grid.map(g => ({ ...g, rotation: 0 }));
         this.stateManager.updateState({ grid: resGrid, lives: remainingLives, time: 0 });
         this.recalculateRays();
@@ -192,11 +203,8 @@ export class GameEngine {
   private rotateCell(index: number): void {
     const state = this.stateManager.getState();
     const cell = state.grid[index];
-    
-    // Puste pola i miny nie reagują na obrót
     if (!cell || cell.type === 'EMPTY' || cell.type === 'MINE') return;
 
-    // Obracamy o 90 stopni w prawo
     const updatedGrid = state.grid.map((elem, idx) => 
       idx === index ? { ...elem, rotation: (elem.rotation + 90) % 360 } : elem
     );
@@ -204,128 +212,145 @@ export class GameEngine {
     this.stateManager.updateState({ grid: updatedGrid });
     this.recalculateRays();
     
-    // NOWOŚĆ: Aktywne Zagrożenia. Sprawdzamy, czy laser po obrocie nie zdetonował miny!
-    this.checkInstantHazards();
+    // 1. Sprawdzanie min optycznych (natychmiastowa śmierć)
+    if (this.checkInstantHazards()) return; 
+
+    const newState = this.stateManager.getState();
+    const { cols, rows, receivers, rays } = newState;
+
+    // 2. NOWOŚĆ: BEZLITOSNE ŚCIANY (Wall Penalty)
+    let rayHitEmptyWall = false;
+
+    // Analizujemy wszystkie promienie z nowego stanu
+    rays.forEach(ray => {
+      let hitWall = false;
+      let hitRow = -1;
+      let hitCol = -1;
+
+      // Sprawdzamy czy promień wypadł POZA siatkę na którejś z 4 krawędzi
+      if (ray.x2 >= cols && ray.x1 < ray.x2) { hitWall = true; hitRow = Math.floor(ray.y2); } // Prawa krawędź
+      else if (ray.x2 <= 0 && ray.x1 > ray.x2) { hitWall = true; hitRow = Math.floor(ray.y2); } // Lewa krawędź
+      else if (ray.y2 >= rows && ray.y1 < ray.y2) { hitWall = true; hitCol = Math.floor(ray.x2); } // Dolna krawędź
+      else if (ray.y2 <= 0 && ray.y1 > ray.y2) { hitWall = true; hitCol = Math.floor(ray.x2); } // Górna krawędź
+
+      if (hitWall) {
+        // Sprawdzamy czy w tym miejscu JEST jakiś odbiornik
+        const hasReceiver = receivers.some(rec => {
+          if (rec.index < rows) {
+            // Odbiorniki na wierszach (lewo/prawo)
+            return rec.index === hitRow;
+          } else {
+            // Odbiorniki na kolumnach (góra/dół)
+            return (rec.index - rows) === hitCol;
+          }
+        });
+
+        if (!hasReceiver) {
+          rayHitEmptyWall = true;
+        }
+      }
+    });
+
+    if (rayHitEmptyWall) {
+      this.punishPlayer("Wiązka laserowa trafiła w pustą ścianę i uległa rozproszeniu!");
+      return; 
+    }
+
+    // 3. Automatyczne sprawdzanie wygranej (jeśli przeżył miny i ściany)
+    const allSatisfied = newState.receivers.every(r => r.isSatisfied);
     
+    if (allSatisfied) {
+      if (this.timerInterval) clearInterval(this.timerInterval);
+      const timeBonus = Math.max(0, 150 - newState.time * 2); 
+      const nextLvl = newState.level + 1;
+
+      this.stateManager.updateState({
+        status: 'WIN',
+        score: newState.score + 150 + (newState.level * 30) + timeBonus,
+        level: nextLvl,
+        bestLevel: Math.max(newState.bestLevel, nextLvl)
+      });
+    }
+
     this.uiController.render(this.stateManager.getState());
   }
 
-  // Funkcja sprawdzająca natychmiastowe zwarcia podczas rekonfiguracji w locie
-  private checkInstantHazards(): void {
+  // Lekka korekta checkInstantHazards aby zwracała boolean
+  private checkInstantHazards(): boolean {
     const state = this.stateManager.getState();
-    if (state.status !== 'PLAYING') return;
-    
     let hitMine = false;
     state.grid.forEach((cell, idx) => {
       if (cell.type === 'MINE') {
         const r = Math.floor(idx / state.cols);
         const c = idx % state.cols;
-        // Jeśli jakikolwiek promień przecina pole z miną po obrocie lustra
-        const rayEnters = state.rays.some(ray => 
-          Math.floor(ray.x1) === c && Math.floor(ray.y1) === r
-        );
-        if (rayEnters) hitMine = true;
+        if (state.rays.some(ray => Math.floor(ray.x1) === c && Math.floor(ray.y1) === r)) hitMine = true;
       }
     });
 
     if (hitMine) {
-      this.punishPlayer("Wiązka laserowa omiotła minę optyczną podczas rekonfiguracji!");
+      this.punishPlayer("Wiązka laserowa omiotła minę optyczną!");
+      return true;
     }
+    return false;
   }
 
-  // --- SILNIK RAYCASTINGU (Śledzenie promieni w locie) ---
-  private recalculateRays(): void {
-    const state = this.stateManager.getState();
-    const { cols, rows, grid, emitters } = state;
+  // --- SILNIK RAYCASTINGU (Dwusegmentowy) ---
+  private simulateRays(grid: GridElement[], emitters: Emitter[], cols: number, rows: number): RaySegment[] {
     const rays: RaySegment[] = [];
-
-    // Zabezpieczenie przed nieskończoną pętlą (np. zapętlone lustra)
     const MAX_STEPS = 100;
-    // Zapamiętujemy odwiedzone stany promienia: "row,col,dir,color"
     const visited = new Set<string>();
-
-    interface ActiveRay {
-      r: number;
-      c: number;
-      dir: Direction;
-      color: LaserColor;
-      steps: number;
-    }
-
+    interface ActiveRay { r: number; c: number; dir: Direction; color: LaserColor; steps: number; }
     const queue: ActiveRay[] = [];
 
-    // Inicjalizacja promieni startowych z emiterów
     emitters.forEach(em => {
-      // Określamy komórkę wejściową na siatce na podstawie kierunku strzału działka
       let startR = 0, startC = 0;
       if (em.direction === 'RIGHT') { startR = em.index; startC = 0; }
       else if (em.direction === 'LEFT') { startR = em.index; startC = cols - 1; }
       else if (em.direction === 'DOWN') { startR = 0; startC = em.index; }
       else if (em.direction === 'UP') { startR = rows - 1; startC = em.index; }
-
       queue.push({ r: startR, c: startC, dir: em.direction, color: em.color, steps: 0 });
     });
 
     while (queue.length > 0) {
       const curr = queue.shift()!;
       if (curr.steps > MAX_STEPS) continue;
-
-      // Sprawdzamy wyjście poza planszę
       if (curr.r < 0 || curr.r >= rows || curr.c < 0 || curr.c >= cols) continue;
 
       const stateKey = `${curr.r},${curr.c},${curr.dir},${curr.color}`;
       if (visited.has(stateKey)) continue;
       visited.add(stateKey);
 
-      // Środek bieżącego kafelka (względne koordynaty dla celów rysowania)
       const x1 = curr.c + 0.5;
       const y1 = curr.r + 0.5;
 
-      // Określamy punkt startowy segmentu (skąd wszedł na kafelek)
       let sx = x1, sy = y1;
       if (curr.dir === 'RIGHT') sx = curr.c;
       if (curr.dir === 'LEFT') sx = curr.c + 1;
       if (curr.dir === 'DOWN') sy = curr.r;
       if (curr.dir === 'UP') sy = curr.r + 1;
 
-      // Dodajemy pierwszą połowę wiązki (wejście do środka kafelka)
       rays.push({ x1: sx, y1: sy, x2: x1, y2: y1, color: curr.color });
 
-      // Sprawdzamy interakcję z elementem optycznym na kafelku
       const cell = grid[curr.r * cols + curr.c];
       const nextRays: { dir: Direction; color: LaserColor }[] = [];
 
-      if (cell.type === 'MINE') {
-        // Promień uderza w minę – urywa się w środku (brak wyjścia)
-        continue;
-      } else if (cell.type === 'EMPTY') {
-        // Przelatuje swobodnie dalej
+      if (cell.type === 'EMPTY') {
         nextRays.push({ dir: curr.dir, color: curr.color });
       } else if (cell.type === 'MIRROR_1') {
-        // Lustro typu '/' (zależnie od rotacji zachowuje się jak '/' lub '\')
-        const isSlash = cell.rotation === 0 || cell.rotation === 180;
-        const outDir = this.reflectRay(curr.dir, isSlash);
+        const outDir = this.reflectRay(curr.dir, cell.rotation === 0 || cell.rotation === 180);
         if (outDir) nextRays.push({ dir: outDir, color: curr.color });
       } else if (cell.type === 'MIRROR_2') {
-        // Lustro typu '\'
-        const isSlash = cell.rotation === 90 || cell.rotation === 270;
-        const outDir = this.reflectRay(curr.dir, isSlash);
+        const outDir = this.reflectRay(curr.dir, cell.rotation === 90 || cell.rotation === 270);
         if (outDir) nextRays.push({ dir: outDir, color: curr.color });
       } else if (cell.type === 'SPLITTER') {
-        // Pryzmat rozszczepia promień na kierunek bieżący oraz odbity pod kątem 90 st.
-        // Rotacja określa, w którą stronę następuje odchylenie wtórne
-        nextRays.push({ dir: curr.dir, color: curr.color }); // Przechodzi prosto
-        
-        const splitSlash = cell.rotation === 0 || cell.rotation === 180;
-        const splitDir = this.reflectRay(curr.dir, splitSlash);
+        nextRays.push({ dir: curr.dir, color: curr.color });
+        const splitDir = this.reflectRay(curr.dir, cell.rotation === 0 || cell.rotation === 180);
         if (splitDir) nextRays.push({ dir: splitDir, color: curr.color });
       }
 
-      // Dla każdego wygenerowanego promienia wyjściowego rysujemy resztę wiązki i wrzucamy do kolejki
       nextRays.forEach(nr => {
         let ex = x1, ey = y1;
         let nextR = curr.r, nextC = curr.c;
-
         if (nr.dir === 'RIGHT') { ex = curr.c + 1; nextC++; }
         else if (nr.dir === 'LEFT') { ex = curr.c; nextC--; }
         else if (nr.dir === 'DOWN') { ey = curr.r + 1; nextR++; }
@@ -335,14 +360,41 @@ export class GameEngine {
         queue.push({ r: nextR, c: nextC, dir: nr.dir, color: nr.color, steps: curr.steps + 1 });
       });
     }
-
-    this.stateManager.updateState({ rays });
+    return rays;
   }
 
-  // Oblicza kierunek odbicia od lustra
+  // --- ZMIENIONE PRZELICZANIE (Automatycznie sprawdza cele!) ---
+  private recalculateRays(): void {
+    const state = this.stateManager.getState();
+    const rays = this.simulateRays(state.grid, state.emitters, state.cols, state.rows);
+    
+    // Sprawdzamy satysfakcję odbiorników w locie!
+    const updatedReceivers = state.receivers.map(rec => {
+      const isSatisfied = this.checkReceiverSatisfied(rec, rays, state.cols, state.rows);
+      return { ...rec, isSatisfied };
+    });
+
+    this.stateManager.updateState({ rays, receivers: updatedReceivers });
+  }
+
+  // Helper do sprawdzania pojedynczego odbiornika
+  private checkReceiverSatisfied(rec: Receiver, rays: RaySegment[], cols: number, rows: number): boolean {
+    const incomingColors = new Set<LaserColor>();
+    rays.forEach(ray => {
+      if (rec.index < rows) {
+        if (ray.x2 === cols && Math.floor(ray.y2) === rec.index && ray.x1 < ray.x2) incomingColors.add(ray.color);
+        if (ray.x2 === 0 && Math.floor(ray.y2) === rec.index && ray.x1 > ray.x2) incomingColors.add(ray.color);
+      } else {
+        const targetCol = rec.index - rows;
+        if (ray.y2 === rows && Math.floor(ray.x2) === targetCol && ray.y1 < ray.y2) incomingColors.add(ray.color);
+        if (ray.y2 === 0 && Math.floor(ray.x2) === targetCol && ray.y1 > ray.y2) incomingColors.add(ray.color);
+      }
+    });
+    return this.blendColors(Array.from(incomingColors)) === rec.targetColor;
+  }
+
+  // Precyzyjna fizyka luster (zastępuje Twoje traceRay)
   private reflectRay(inDir: Direction, isSlash: boolean): Direction | null {
-    // isSlash == true oznacza lustro w orientacji '/'
-    // isSlash == false oznacza lustro w orientacji '\'
     if (isSlash) {
       if (inDir === 'RIGHT') return 'UP';
       if (inDir === 'DOWN') return 'LEFT';
@@ -357,20 +409,19 @@ export class GameEngine {
     return null;
   }
 
-  // --- WERYFIKACJA LOGIKI RGB I WARUNKÓW ZWYCIĘSTWA ---
+  // --- WERYFIKACJA LOGIKI ZWYCIĘSTWA I MIESZANIA RGB ---
   private verifyOpticalCircuit(): void {
     const state = this.stateManager.getState();
+    if (state.status !== 'PLAYING') return;
+
     const { cols, rows, grid, receivers } = state;
 
-    // 1. Sprawdzamy, czy jakikolwiek promień dotknął miny
-    // Odczytujemy to analizując, czy w komórkach z minami kończy się promień
-    // Dla uproszczenia: jeśli promień wszedł na pole z miną, następuje zwarcie.
+    // Najpierw sprawdzamy miny (detonacja przy wciśnięciu TEST FIRE)
     let hitMine = false;
     grid.forEach((cell, idx) => {
       if (cell.type === 'MINE') {
         const r = Math.floor(idx / cols);
         const c = idx % cols;
-        // Sprawdzamy, czy segment promienia przecina ten kafelek
         const rayEnters = state.rays.some(ray => 
           Math.floor(ray.x1) === c && Math.floor(ray.y1) === r
         );
@@ -383,30 +434,22 @@ export class GameEngine {
       return;
     }
 
-    // 2. Analizujemy zasilenie każdego odbiornika
-    // Odbiornik zbiera wszystkie kolory z wiązek, które z niego WYCHODZĄ poza plik siatki
     let allSatisfied = true;
     const updatedReceivers = receivers.map(rec => {
       const incomingColors = new Set<LaserColor>();
 
       state.rays.forEach(ray => {
-        // Sprawdzamy segmenty wylatujące z siatki wprost do odbiornika
-        // np. odbiornik na prawym brzegu (c == cols) odbiera wiązki, których x2 == cols
-        // i leżą w odpowiednim wierszu
-        if (rec.index < rows) { // Odbiorniki boczne
+        if (rec.index < rows) { // Odbiorniki na lewej/prawej flance
           const targetRow = rec.index;
-          // Sprawdzamy prawy brzeg
           if (ray.x2 === cols && Math.floor(ray.y2) === targetRow && ray.x1 < ray.x2) {
             incomingColors.add(ray.color);
           }
-          // Sprawdzamy lewy brzeg (w zależności od generatora)
           if (ray.x2 === 0 && Math.floor(ray.y2) === targetRow && ray.x1 > ray.x2) {
             incomingColors.add(ray.color);
           }
         }
-        // Odbiorniki górne/dolne
-        if (rec.index >= rows) {
-          const targetCol = rec.index - rows; // Logika mapowania koordynatów docelowych
+        if (rec.index >= rows) { // Odbiorniki góra/dół
+          const targetCol = rec.index - rows;
           if (ray.y2 === rows && Math.floor(ray.x2) === targetCol && ray.y1 < ray.y2) {
             incomingColors.add(ray.color);
           }
@@ -416,7 +459,6 @@ export class GameEngine {
         }
       });
 
-      // Mieszamy addytywnie zebrane wiązki
       const blendedColor = this.blendColors(Array.from(incomingColors));
       const isSatisfied = blendedColor === rec.targetColor;
       if (!isSatisfied) allSatisfied = false;
@@ -428,7 +470,6 @@ export class GameEngine {
     this.uiController.render(this.stateManager.getState());
 
     if (allSatisfied) {
-      // Sukces!
       if (this.timerInterval) clearInterval(this.timerInterval);
       const timeBonus = Math.max(0, 100 - state.time);
       const nextLvl = state.level + 1;
@@ -445,17 +486,16 @@ export class GameEngine {
     }
   }
 
-  // Mieszanie addytywne kolorów RGB do spektrum wtórnego
   private blendColors(colors: LaserColor[]): LaserColor | null {
     if (colors.length === 0) return null;
     const hasR = colors.includes('R') || colors.includes('M') || colors.includes('Y') || colors.includes('W');
     const hasG = colors.includes('G') || colors.includes('C') || colors.includes('Y') || colors.includes('W');
     const hasB = colors.includes('B') || colors.includes('M') || colors.includes('C') || colors.includes('W');
 
-    if (hasR && hasG && hasB) return 'W'; // Biel
-    if (hasR && hasG) return 'Y'; // Żółty
-    if (hasR && hasB) return 'M'; // Magenta
-    if (hasG && hasB) return 'C'; // Cyjan
+    if (hasR && hasG && hasB) return 'W';
+    if (hasR && hasG) return 'Y';
+    if (hasR && hasB) return 'M';
+    if (hasG && hasB) return 'C';
     if (hasR) return 'R';
     if (hasG) return 'G';
     if (hasB) return 'B';
@@ -476,45 +516,35 @@ export class GameEngine {
     this.uiController.render(this.stateManager.getState());
   }
 
-  // --- GENERATOR ZAGADEK OPTYCZNYCH (Wersja Ostateczna) ---
-  private generateOpticalPuzzle(level: number, cols: number, rows: number) {
+ private generateOpticalPuzzle(level: number, cols: number, rows: number) {
     const totalCells = cols * rows;
     const grid: GridElement[] = Array(totalCells).fill(null).map(() => ({ type: 'EMPTY', rotation: 0 }));
 
-    const emitters: Emitter[] = [
-      { index: 0, color: 'R', direction: 'RIGHT' },
-      { index: Math.floor(rows / 2), color: 'G', direction: 'RIGHT' }
-    ];
-    if (level >= 3) {
-      emitters.push({ index: rows - 1, color: 'B', direction: 'RIGHT' });
-    }
+    const emitters: Emitter[] = [{ index: 0, color: 'R', direction: 'RIGHT' }];
+    if (level >= 2) emitters.push({ index: Math.floor(rows / 2), color: 'G', direction: 'RIGHT' });
+    if (level >= 4) emitters.push({ index: rows - 1, color: 'B', direction: 'RIGHT' });
 
     const receivers: Receiver[] = [];
     const usedCells = new Set<number>();
-    
-    // 1. Zabezpieczenie: Ekskluzywne pasy ruchu dla każdego koloru
     const claimedRows = new Map<number, LaserColor>();
+    
     emitters.forEach(em => claimedRows.set(em.index, em.color));
 
-    // 2. Wypalanie ścieżek
     emitters.forEach(em => {
       let r = em.index;
       let c = 0;
 
       while (c < cols) {
-        // 2. Zabezpieczenie: Sprawdzamy czy nie stoimy na cudzej ścieżce
         const wasAlreadyUsed = usedCells.has(r * cols + c);
-        usedCells.add(r * cols + c); // Zaznaczamy przejście poziome
+        usedCells.add(r * cols + c);
 
-        if (c < cols - 1 && Math.random() < 0.40 && !wasAlreadyUsed) {
+        // Zwiększona szansa zmiany wiersza (60% zamiast 40%) - trudniejsza gra
+        if (c < cols - 1 && Math.random() < 0.60 && !wasAlreadyUsed) {
           const availableRows: number[] = [];
           
           for (let nextR = 0; nextR < rows; nextR++) {
             if (nextR !== r) {
-              // Sprawdzamy, czy wiersz docelowy jest wolny lub należy do nas
               if (!claimedRows.has(nextR) || claimedRows.get(nextR) === em.color) {
-                
-                // 3. Zabezpieczenie: Czy pionowy szyb nie przetnie istniejącego LUSTRA?
                 let shaftClear = true;
                 const minR = Math.min(r, nextR);
                 const maxR = Math.max(r, nextR);
@@ -535,56 +565,91 @@ export class GameEngine {
 
           if (availableRows.length > 0) {
             const targetR = availableRows[Math.floor(Math.random() * availableRows.length)];
-            claimedRows.set(targetR, em.color); // Rezerwujemy nowy pas
+            claimedRows.set(targetR, em.color);
             
             const goesDown = targetR > r;
 
-            // Stawiamy lustra
             grid[r * cols + c] = { type: 'MIRROR_1', rotation: goesDown ? 90 : 0 };
             grid[targetR * cols + c] = { type: goesDown ? 'MIRROR_2' : 'MIRROR_1', rotation: goesDown ? 0 : 0 };
             
-            // Oznaczamy pionowy szyb jako zajęty (by nie stawiać tam min)
             const minR = Math.min(r, targetR);
             const maxR = Math.max(r, targetR);
             for (let stepR = minR; stepR <= maxR; stepR++) {
               usedCells.add(stepR * cols + c);
             }
 
-            r = targetR; // Przeskok promienia
+            r = targetR;
           }
         }
         c++; 
       }
 
-      // Bezpiecznie dodajemy odbiornik (nikt inny tu nie wjedzie)
       receivers.push({ index: r, targetColor: em.color, isSatisfied: false });
     });
 
-    // 3. Wypełnianie tła (Szum optyczny, Miny i Pryzmaty)
+    // Zwiększona gęstość przeszkód - grą jest trudniejsza
     grid.forEach((cell, idx) => {
       if (!usedCells.has(idx)) {
-        // Skalowanie trudności - gęstość zmyłek rośnie z każdym poziomem
-        // Od 20% na starcie aż do morderczych 75% na wyższych poziomach
-        const noiseChance = Math.min(0.20 + (level * 0.08), 0.75); 
-
+        const noiseChance = Math.min(0.40 + (level * 0.08), 0.90);
         if (Math.random() < noiseChance) {
-          if (level >= 5 && Math.random() < 0.25) {
-            cell.type = 'SPLITTER'; // Dodajemy Rozszczepiacze od 5 poziomu!
-          } else if (level >= 4 && Math.random() < 0.35) {
-            cell.type = 'MINE';     // Dodajemy Miny od 4 poziomu!
-          } else {
-            cell.type = Math.random() < 0.5 ? 'MIRROR_1' : 'MIRROR_2';
-          }
+          if (level >= 4 && Math.random() < 0.35) cell.type = 'SPLITTER';
+          else if (level >= 3 && Math.random() < 0.45) cell.type = 'MINE';
+          else cell.type = Math.random() < 0.5 ? 'MIRROR_1' : 'MIRROR_2';
         }
-      }
-
-      // Losowe obracanie wszystkich wygenerowanych obiektów optycznych
-      if (cell.type === 'MIRROR_1' || cell.type === 'MIRROR_2' || cell.type === 'SPLITTER') {
-        const rotations = [0, 90, 180, 270];
-        cell.rotation = rotations[Math.floor(Math.random() * rotations.length)];
       }
     });
 
+    // ZABEZPIECZENIE PRZED AUTO-WIN:
+    let isSolved = true;
+    let safetyNet = 0;
+    while (isSolved && safetyNet < 20) {
+      grid.forEach(cell => {
+        if (cell.type === 'MIRROR_1' || cell.type === 'MIRROR_2' || cell.type === 'SPLITTER') {
+          const rotations = [0, 90, 180, 270];
+          cell.rotation = rotations[Math.floor(Math.random() * rotations.length)];
+        }
+      });
+      // Testujemy promienie "na sucho" bez zmiany stanu
+      const testRays = this.simulateRays(grid, emitters, cols, rows);
+      // Szukamy, czy CHOĆ JEDEN odbiornik jest przypadkiem trafiony na start
+      isSolved = receivers.some(rec => this.checkReceiverSatisfied(rec, testRays, cols, rows));
+      safetyNet++;
+    }
+
     return { grid, emitters, receivers };
+  }
+
+  // Kodowanie rekordu do stringa (dla rywalizacji)
+ public encodeRivalCode(bestScore: number, bestLevel: number): string {
+    return btoa(`LASER:${bestScore}:${bestLevel}:${Date.now()}`); // <--- Było BEAMS
+  }
+
+  // Dekodowanie i weryfikacja kodu rywala
+  private decodeAndApplyRivalCode(code: string): void {
+    try {
+      const decoded = atob(code);
+      const parts = decoded.split(':');
+      if (parts[0] !== 'LASER' || parts.length < 3) throw new Error('Invalid code'); // <--- Było BEAMS
+      
+      const rivalScore = parseInt(parts[1], 10);
+      const rivalLevel = parseInt(parts[2], 10);
+      
+      if (isNaN(rivalScore) || isNaN(rivalLevel)) throw new Error('Invalid numbers');
+      
+      this.stateManager.updateState({
+        rivalScore,
+        rivalLevel
+      });
+      
+      this.uiController.render(this.stateManager.getState());
+    } catch (e) {
+      console.error('Failed to decode rival code:', e);
+      alert('❌ Invalid code format!');
+    }
+  }
+
+  public getRivalCode(): string {
+    const state = this.stateManager.getState();
+    return this.encodeRivalCode(state.bestScore, state.bestLevel);
   }
 }

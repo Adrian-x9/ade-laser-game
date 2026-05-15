@@ -17,7 +17,8 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     active: "Racing against record:", endVs: "❌ End Rivalry",
     fire: "⚡ TEST FIRE",
     hitMine: "SYSTEM ERROR: Optical Mine Detonated!",
-    wrongColor: "SYSTEM ERROR: Incorrect wavelength detected!"
+    wrongColor: "SYSTEM ERROR: Incorrect wavelength detected!",
+    currentLevel: "LEVEL"
   },
   PL: {
     save: "Zapisz", load: "Wczytaj", info: "Info", new: "Nowa Gra",
@@ -35,7 +36,8 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     active: "Ścigasz się z wynikiem:", endVs: "❌ Zakończ rywalizację",
     fire: "⚡ ODPAL LASER",
     hitMine: "BŁĄD: Mina optyczna zdetonowana!",
-    wrongColor: "BŁĄD: Nieprawidłowa długość fali!"
+    wrongColor: "BŁĄD: Nieprawidłowa długość fali!",
+    currentLevel: "POZIOM"
   },
   DE: {
     save: "Speichern", load: "Laden", info: "Info", new: "Neues Spiel",
@@ -53,30 +55,35 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     active: "Rennen gegen Rekord:", endVs: "❌ Wettkampf beenden",
     fire: "⚡ TESTFEUER",
     hitMine: "FEHLER: Optische Mine detoniert!",
-    wrongColor: "FEHLER: Falsche Wellenlänge erkannt!"
+    wrongColor: "FEHLER: Falsche Wellenlänge erkannt!",
+    currentLevel: "LEVEL"
   }
 };
 
-// Mapowanie kolorów laserów na kody HEX z efektem neonu
 const COLOR_MAP: Record<LaserColor, string> = {
-  'R': '#FF3B30', // Red
-  'G': '#34C759', // Green
-  'B': '#007AFF', // Blue
-  'C': '#00FFFF', // Cyan
-  'M': '#FF00FF', // Magenta
-  'Y': '#FFFF00', // Yellow
-  'W': '#FFFFFF'  // White
+  'R': '#FF3B30',
+  'G': '#34C759',
+  'B': '#007AFF',
+  'C': '#00FFFF',
+  'M': '#FF00FF',
+  'Y': '#FFFF00',
+  'W': '#FFFFFF'
 };
 
 export class UIController {
   private appContainer: HTMLElement;
   private scoreElement: HTMLElement | null = null;
+  private gameEngine: any = null;
   public onAction: ((actionId: string) => void) | null = null;
 
   constructor(containerId: string) {
     const container = document.getElementById(containerId);
     if (!container) throw new Error(`Container #${containerId} not found`);
     this.appContainer = container;
+  }
+
+  public setGameEngine(engine: any): void {
+    this.gameEngine = engine;
   }
 
   public init(): void {
@@ -120,7 +127,7 @@ export class UIController {
         </div>
 
         <footer class="game-controls">
-          <button id="btn-fire" class="btn-primary"></button>
+          <button id="btn-action" class="btn-primary"></button>
           <button id="btn-reset" class="btn-outline" disabled></button>
         </footer>
 
@@ -174,7 +181,7 @@ export class UIController {
       });
     };
 
-    trigger('btn-fire', 'TEST_FIRE');
+    trigger('btn-action', 'ACTION_MAIN');    
     trigger('btn-reset', 'RESET_PATH');
     trigger('btn-save', 'TACTICAL_SAVE');
     trigger('btn-load', 'TACTICAL_LOAD');
@@ -185,23 +192,22 @@ export class UIController {
       if (this.onAction) this.onAction('TOGGLE_DARK_MODE');
     });
 
-    document.getElementById('btn-info')?.addEventListener('click', () => {
-      document.getElementById('info-modal')?.classList.remove('hidden');
+    document.getElementById('btn-open-vs')?.addEventListener('click', () => {
+      document.getElementById('vs-modal')?.classList.remove('hidden');
     });
 
     document.getElementById('btn-close-info')?.addEventListener('click', () => {
       document.getElementById('info-modal')?.classList.add('hidden');
     });
 
-    document.getElementById('btn-open-vs')?.addEventListener('click', () => {
-      document.getElementById('vs-modal')?.classList.remove('hidden');
+    document.getElementById('btn-info')?.addEventListener('click', () => {
+      document.getElementById('info-modal')?.classList.remove('hidden');
     });
 
     document.getElementById('btn-close-vs')?.addEventListener('click', () => {
       document.getElementById('vs-modal')?.classList.add('hidden');
     });
 
-    // Delegacja kliknięć w kafelki siatki
     document.getElementById('game-board')?.addEventListener('click', (e) => {
       const target = e.target as HTMLElement;
       const cell = target.closest('.grid-cell') as HTMLElement;
@@ -210,7 +216,6 @@ export class UIController {
       }
     });
 
-    // Delegacja akcji w modalach (Kopiowanie, VS submit)
     document.addEventListener('click', (e) => {
       const target = e.target as HTMLElement;
       if (target.id === 'btn-copy-code') {
@@ -236,7 +241,6 @@ export class UIController {
     if (!svg) return;
     svg.innerHTML = '';
     
-    // Ustawiamy viewBox na wymiary siatki, by koordynaty (0.5, 0.5) działały idealnie
     svg.setAttribute('viewBox', `0 0 ${cols} ${rows}`);
 
     rays.forEach(ray => {
@@ -263,7 +267,6 @@ export class UIController {
 
     const { rows, emitters, receivers } = state;
 
-    // Render emiterów (lewy brzeg)
     emitters.forEach(em => {
       const el = document.createElement('div');
       el.className = `emitter em-${em.color.toLowerCase()}`;
@@ -272,7 +275,6 @@ export class UIController {
       container.appendChild(el);
     });
 
-    // Render odbiorników (prawy brzeg)
     receivers.forEach(rec => {
       const el = document.createElement('div');
       el.className = `receiver rec-${rec.targetColor.toLowerCase()} ${rec.isSatisfied ? 'satisfied' : ''}`;
@@ -290,31 +292,57 @@ export class UIController {
     if (state.isDarkMode) document.body.classList.add('dark-mode');
     else document.body.classList.remove('dark-mode');
 
-    // Teksty i Przyciski
     const setTxt = (id: string, text: string) => {
       const el = document.getElementById(id);
       if (el) el.textContent = text;
     };
 
-    setTxt('lbl-lives', t.lives); setTxt('lbl-time', t.time); setTxt('lbl-total-time', t.totalTime);
-    setTxt('lbl-best', t.best); setTxt('lbl-max-lvl', t.maxLvl);
-    setTxt('btn-new', t.new); setTxt('btn-info', `ℹ️ ${t.info}`); setTxt('btn-lang', `🌐 ${state.lang}`);
-    setTxt('btn-save', `💾 ${t.save}`); 
-    setTxt('btn-load', `📂 ${t.load}`);
-    // --------------------------------------------------
+    // Labels
+    setTxt('lbl-lives', t.lives);
+    setTxt('lbl-time', t.time);
+    setTxt('lbl-total-time', t.totalTime);
+    setTxt('lbl-best', t.best);
+    setTxt('lbl-max-lvl', t.maxLvl);
+    setTxt('btn-new', t.new);
+    setTxt('btn-lang', `🌐 ${state.lang}`);
+    setTxt('btn-info', `ℹ️ ${t.info}`);
     setTxt('btn-open-vs', t.vsBtn);
+
+
+    // Zapis/Odczyt na 1 raz
+    const saveBtn = document.getElementById('btn-save') as HTMLButtonElement;
+    const loadBtn = document.getElementById('btn-load') as HTMLButtonElement;
+    setTxt('btn-save', `💾 ${t.save} ${state.savesLeft > 0 ? '★' : '☆'}`); 
+    setTxt('btn-load', `📂 ${t.load} ${state.loadsLeft > 0 ? '★' : '☆'}`);
+    if (saveBtn) saveBtn.disabled = state.savesLeft === 0 || state.status !== 'PLAYING';
+    if (loadBtn) loadBtn.disabled = state.loadsLeft === 0 || state.status !== 'PLAYING' || !state.savedSnapshot;
+
+    // Przycisk dolny (Poziom / Dalej / Od nowa)
+    const actionBtn = document.getElementById('btn-action') as HTMLButtonElement;
+    const resetBtn = document.getElementById('btn-reset') as HTMLButtonElement;
+    if (actionBtn) {
+      if (state.status === 'WIN') { actionBtn.textContent = t.next; actionBtn.disabled = false; }
+      else if (state.status === 'GAME_OVER') { actionBtn.textContent = t.try; actionBtn.disabled = false; }
+      else {
+        actionBtn.textContent = `${t.currentLevel} ${state.level}`;
+        actionBtn.disabled = true; // Zablokowany w trakcie gry
+      }
+    }
+    if (resetBtn) resetBtn.disabled = state.status !== 'PLAYING';
 
     const darkBtn = document.getElementById('btn-dark');
     if (darkBtn) darkBtn.textContent = state.isDarkMode ? `🌙 ${t.dark}` : `☀️ ${t.light}`;
 
+    // Score and Level
     if (this.scoreElement) this.scoreElement.textContent = state.score.toString();
+    setTxt('level-val', state.level.toString());
     setTxt('best-val', state.rivalScore !== null ? `${state.bestScore} / ${state.rivalScore}` : state.bestScore.toString());
     setTxt('max-lvl-val', state.rivalLevel !== null ? `${state.bestLevel} / ${state.rivalLevel}` : state.bestLevel.toString());
 
     const livesEl = document.getElementById('lives-val');
     if (livesEl) livesEl.textContent = state.status === 'GAME_OVER' ? '☠️' : '♥'.repeat(state.lives);
 
-    // Plansza
+    // Board
     const board = document.getElementById('game-board');
     if (board) {
       if (board.children.length !== state.grid.length) {
@@ -342,21 +370,10 @@ export class UIController {
       });
     }
 
-    // Warstwy dodatkowe
     this.renderPeripherals(state);
     this.renderRays(state.rays, state.cols, state.rows);
 
-    // Stopka
-    const fireBtn = document.getElementById('btn-fire') as HTMLButtonElement;
-    const resetBtn = document.getElementById('btn-reset') as HTMLButtonElement;
-    if (fireBtn) {
-      if (state.status === 'WIN') fireBtn.textContent = t.next;
-      else if (state.status === 'GAME_OVER') fireBtn.textContent = t.try;
-      else fireBtn.textContent = t.fire;
-    }
-    if (resetBtn) resetBtn.disabled = state.status !== 'PLAYING';
-
-    // Modale
+    // Info Modal
     const infoEl = document.getElementById('dynamic-info-wrapper');
     if (infoEl) {
       const isStandalone = typeof window !== 'undefined' && 
@@ -374,7 +391,40 @@ export class UIController {
             <li>❤️ <b>Roguelike:</b> One beam hitting a mine or a wrong receiver will cost a life!</li>
           </ul>
           ${!isStandalone ? `<button id="btn-modal-install" class="btn-primary" style="width:100%; margin-bottom:12px;" onclick="window.__beamsInstall && window.__beamsInstall()">📲 ${btnInstall}</button>` : ''}
-          <div class="author-info"><span class="author-name">ade BEAMS by Adrian Ulbrych</span><span class="author-meta">v1.0.0 © 2026-05-14</span></div>
+          <div class="author-info"><span class="author-name">ade LASER game by Adrian Ulbrych</span></div>
+        </div>
+      `;
+    }
+
+    // VS Modal
+    const vsEl = document.getElementById('dynamic-vs-wrapper');
+    if (vsEl) {
+      const yourCode = this.gameEngine?.getRivalCode?.() || 'ERROR';
+      const isRivaling = state.rivalScore !== null;
+
+      vsEl.innerHTML = `
+        <div class="info-content">
+          <h2>${t.vsTitle}</h2>
+          <p>${isRivaling ? t.active : t.vsDesc}</p>
+          ${!isRivaling ? `
+            <div style="margin: 16px 0;">
+              <label style="display: block; margin-bottom: 8px; font-weight: 600;">${t.yourCode}</label>
+              <div class="code-box" id="my-rival-code">${yourCode}</div>
+              <button id="btn-copy-code" class="btn-primary" style="width: 100%;">${t.copy}</button>
+            </div>
+            <hr style="margin: 16px 0; border: none; border-top: 1px solid var(--cell-checkpoint);">
+            <div>
+              <label style="display: block; margin-bottom: 8px; font-weight: 600;">${t.paste}</label>
+              <input type="text" id="input-rival-code" class="input-rival" placeholder="Paste code here...">
+              <button id="btn-submit-rival" class="btn-primary" style="width: 100%;">${t.submit}</button>
+            </div>
+          ` : `
+            <div style="margin: 16px 0;">
+              <p>🏆 <b>vs ${state.rivalScore} pts / Level ${state.rivalLevel}</b></p>
+              <p>Your: <b>${state.bestScore} pts / Level ${state.bestLevel}</b></p>
+              <button id="btn-end-vs" class="btn-danger">${t.endVs}</button>
+            </div>
+          `}
         </div>
       `;
     }

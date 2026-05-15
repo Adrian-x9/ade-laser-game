@@ -1,8 +1,7 @@
-import { GameState } from '../types';
+import { GameState } from '../types/index';
 
 export class StateManager {
-  // Nowy, unikalny klucz w localStorage dedykowany dla gry z laserami
-  private readonly STORAGE_KEY = 'laser_beams_game_save_v1_0';
+  private readonly STORAGE_KEY = 'laser_game_save_v1_0';
   private state: GameState;
 
   constructor() {
@@ -10,7 +9,7 @@ export class StateManager {
   }
 
   private getDefaultState(): GameState {
-    const prefersDark = typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
     let defaultLang: 'EN' | 'PL' | 'DE' = 'EN';
     if (typeof navigator !== 'undefined' && navigator.language) {
@@ -25,15 +24,12 @@ export class StateManager {
       bestLevel: 1,
       level: 1,
       status: 'IDLE',
-      
-      // Domyślne wymiary startowe (zostaną dynamicznie nadpisane przez generator w GameEngine)
       cols: 5,
       rows: 5,
       grid: [],
       emitters: [],
       receivers: [],
       rays: [],
-
       time: 0,
       totalTime: 0,
       lives: 3,
@@ -54,7 +50,6 @@ export class StateManager {
   public updateState(partialState: Partial<GameState>): void {
     this.state = { ...this.state, ...partialState };
 
-    // Automatyczne podbijanie rekordów
     if (this.state.score > this.state.bestScore) {
       this.state.bestScore = this.state.score;
     }
@@ -67,7 +62,6 @@ export class StateManager {
 
   private saveState(): void {
     try {
-      // W pamięci podręcznej zapisujemy wyłącznie globalne ustawienia i rekordy (w tym dane rywala)
       const saveObj = {
         bestScore: this.state.bestScore,
         bestLevel: this.state.bestLevel,
