@@ -80,9 +80,9 @@ export class GameEngine {
     if (action === 'DEV_RESET_BEST') {
       if (this.timerInterval) clearInterval(this.timerInterval);
       this.stateManager.factoryReset();
-      if (typeof window !== 'undefined' && window.__patchesResetBanner) {
-        window.__patchesResetBanner();
-      }
+      if (typeof window !== 'undefined' && window.__beamsResetBanner) {
+  window.__beamsResetBanner();
+}
       this.startGame();
       return;
     }

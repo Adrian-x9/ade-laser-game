@@ -261,8 +261,8 @@ export class UIController {
     if (!container) return;
     container.innerHTML = '';
 
-    const { cols, rows, emitters, receivers } = state;
-    
+    const { rows, emitters, receivers } = state;
+
     // Render emiterów (lewy brzeg)
     emitters.forEach(em => {
       const el = document.createElement('div');

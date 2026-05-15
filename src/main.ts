@@ -164,7 +164,3 @@ window.__beamsResetBanner = () => {
   if (oldBanner) oldBanner.remove();
   initInstallBanner();
 };
-
-// Opcjonalne podpięcie starych aliasów (w razie starych nawyków w konsoli)
-window.__zipInstall = window.__beamsInstall;
-window.__zipResetBanner = window.__beamsResetBanner;
